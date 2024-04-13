@@ -208,6 +208,9 @@ bool check_ip_for_icmp(ip_packet_t *ip){
     
     //remove this after you implement the logic, just here to make sure
     //the program compiles
+    if (ip->ip_hdr.protocol == ICMP_PTYPE){
+        return true;
+    }
     return false;
 }
 
@@ -245,6 +248,11 @@ bool is_icmp_echo(icmp_packet_t *icmp) {
     
     //remove this after you implement the logic, just here to make sure
     //the program compiles
+
+    if (icmp->icmp_hdr.type == ICMP_ECHO_REQUEST  || icmp->icmp_hdr.type  ==  ICMP_ECHO_RESPONSE) {
+        return true;
+    }
+    printf("Error: Expected an ECHO REQUEST or an ECHO response\n");
     return false;
 }
 
@@ -263,7 +271,15 @@ icmp_echo_packet_t *process_icmp_echo(icmp_packet_t *icmp){
 
     //remove this after you implement the logic, just here to make sure
     //the program compiles
-    return (icmp_echo_packet_t *)icmp;
+    icmp_echo_packet_t  *ipt = (icmp_echo_packet_t  * ) icmp  ;
+    ipt->icmp_echo_hdr.icmp_hdr.checksum = ntohs(ipt->icmp_echo_hdr.icmp_hdr.checksum );
+    ipt->icmp_echo_hdr.id = ntohs(ipt->icmp_echo_hdr.id);
+    ipt->icmp_echo_hdr.sequence = ntohs(ipt->icmp_echo_hdr.sequence);
+    ipt->icmp_echo_hdr.timestamp = ntohl(ipt->icmp_echo_hdr.timestamp);
+    ipt->icmp_echo_hdr.timestamp_ms = ntohl(ipt->icmp_echo_hdr.timestamp_ms);
+
+
+    return (icmp_echo_packet_t *)ipt;
 }
 
 /*
@@ -297,13 +313,21 @@ ICMP PACKET DETAILS
     
     //remove this, just a placeholder
     printf("This is where you place your logic to print your ICMP echo PDU header\n");
-
+    printf("ICMP PACKET DETAILS\n");
     //after you print the echo header, print the payload.
 
     //We can calculate the payload size using a macro i provided for you in
     //packet.h. Check it out, but I am providing you the code to call it here
     //correctly.  You can thank me later. 
     uint16_t payload_size = ICMP_Payload_Size(icmp_packet);
+    printf("    type: 0x%04x\n",icmp_packet->icmp_echo_hdr.icmp_hdr.type); 
+    printf("    checksum: 0x%04x\n",icmp_packet->icmp_echo_hdr.icmp_hdr.checksum); 
+    printf("    id: 0x%04x\n",icmp_packet->icmp_echo_hdr.id);
+    printf("    sequence: 0x%04x\n",icmp_packet->icmp_echo_hdr.sequence);
+    printf("    timestamp: 0x%x%x\n",icmp_packet->icmp_echo_hdr.timestamp,icmp_packet->icmp_echo_hdr.timestamp_ms);
+    printf("    payload: %d bytes\n", payload_size);
+//    char * timest = get_ts_formatted(icmp_packet->icmp_echo_hdr.timestamp,icmp_packet->icmp_echo_hdr.timestamp_ms);
+//   printf("    ECHO Timestamp: TS = %s\n", timest);
 
     //Now print the payload data
     print_icmp_payload(icmp_packet->icmp_payload, payload_size);
@@ -345,11 +369,13 @@ void print_icmp_payload(uint8_t *payload, uint16_t payload_size) {
 //function header, you can alter your output just make sure it looks
 //nice.  I provided the alogorithm for how I printed the above out
 //in the function header.
-
-    printf("delete this, but this is where your output goes\n");
-    printf("This is how to print a hex 5 nicely: %02x\n", 5);
-    printf("This is how to print a long value of 20000 nicely: %04lx\n", 2000l);
-
+    printf("\n\n    PAYLOAD\n   OFFSET     | CONTENTS\n");
+    printf("    -----------------------------------------------\n");
+    printf("    0x%04x    |",0);
+     for (int i = 0; i < payload_size; ++i ){
+        printf("   0x%02x",payload[i]);
+        if ((i+1) % 8 == 0 && i!= payload_size - 1){
+            printf("\n    0x%04x    |",i+1);
+        }
+     }
 }
-
-
