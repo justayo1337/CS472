@@ -20,7 +20,9 @@ test_packet_t TEST_CASES[] = {
     MAKE_PACKET(raw_packet_icmp_frame198),
     MAKE_PACKET(raw_packet_icmp_frame362),
     MAKE_PACKET(raw_packet_arp_frame78),
-    MAKE_PACKET(arp_test_15328)
+    MAKE_PACKET(arp_test_15328),
+    MAKE_PACKET(icmp_test15085),
+    MAKE_PACKET(icmp_test5997)
 };
 
 // !!!!!!!!!!!!!!!!!!!!! WHAT YOU NEED TO DO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -369,7 +371,7 @@ void print_icmp_payload(uint8_t *payload, uint16_t payload_size) {
 //function header, you can alter your output just make sure it looks
 //nice.  I provided the alogorithm for how I printed the above out
 //in the function header.
-    printf("\n\n    PAYLOAD\n   OFFSET     | CONTENTS\n");
+    printf("\n\n    PAYLOAD\n    OFFSET     | CONTENTS\n");
     printf("    -----------------------------------------------\n");
     printf("    0x%04x    |",0);
      for (int i = 0; i < payload_size; ++i ){

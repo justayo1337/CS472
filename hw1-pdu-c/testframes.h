@@ -239,3 +239,104 @@ Address Resolution Protocol (reply)
     Sender IP address: 10.0.0.244
     Target MAC address: b2:a0:24:17:8e:bb (b2:a0:24:17:8e:bb)
     Target IP address: 10.0.0.61*/
+
+
+//icmp test packets
+/* Frame (72 bytes) */
+uint8_t icmp_test5997[] = {
+0x9c, 0x6b, 0x00, 0x23, 0xbd, 0xb5, 0xd4, 0x3f, 
+0xcb, 0xed, 0xd9, 0xb9, 0x08, 0x00, 0x45, 0xc0, 
+0x00, 0x3a, 0xeb, 0xd7, 0x00, 0x00, 0x40, 0x01, 
+0x79, 0x37, 0x0a, 0x00, 0x00, 0x01, 0x0a, 0x00, 
+0x00, 0xf4, 0x03, 0x03, 0x12, 0x0d, 0x00, 0x00, 
+0x00, 0x00, 0x45, 0x00, 0x00, 0x1e, 0xc9, 0xb7, 
+0x00, 0x00, 0x80, 0x11, 0x5c, 0x23, 0x0a, 0x00, 
+0x00, 0xf4, 0x0a, 0x00, 0x00, 0x01, 0xee, 0x94, 
+0x14, 0xe7, 0x00, 0x0a, 0xe7, 0x69, 0x00, 0x00  
+};
+
+/*
+Frame 5997: 72 bytes on wire (576 bits), 72 bytes captured (576 bits) on interface \Device\NPF_{EC6562A1-E9BD-4845-BFB6-53A7A886957C}, id 0
+    Section number: 1
+    Interface id: 0 (\Device\NPF_{EC6562A1-E9BD-4845-BFB6-53A7A886957C})
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Apr 13, 2024 09:39:09.119312000 Eastern Daylight Time
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1713015549.119312000 seconds
+    [Time delta from previous captured frame: 0.002610000 seconds]
+    [Time delta from previous displayed frame: 10.627387000 seconds]
+    [Time since reference or first frame: 22.677333000 seconds]
+    Frame Number: 5997
+    Frame Length: 72 bytes (576 bits)
+    Capture Length: 72 bytes (576 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:icmp:ip:udp:portcontrol]
+    [Coloring Rule Name: ICMP errors]
+    [Coloring Rule String: icmp.type in { 3..5, 11 } || icmpv6.type in { 1..4 }]
+Ethernet II, Src: ARRISGro_ed:d9:b9 (d4:3f:cb:ed:d9:b9), Dst: 9c:6b:00:23:bd:b5 (9c:6b:00:23:bd:b5)
+    Destination: 9c:6b:00:23:bd:b5 (9c:6b:00:23:bd:b5)
+    Source: ARRISGro_ed:d9:b9 (d4:3f:cb:ed:d9:b9)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 10.0.0.1, Dst: 10.0.0.244
+Internet Control Message Protocol
+    Type: 3 (Destination unreachable)
+    Code: 3 (Port unreachable)
+    Checksum: 0x120d [correct]
+    [Checksum Status: Good]
+    Unused: 00000000
+    Internet Protocol Version 4, Src: 10.0.0.244, Dst: 10.0.0.1
+    User Datagram Protocol, Src Port: 61076, Dst Port: 5351
+NAT Port Mapping Protocol, External Address Request
+*/
+
+uint8_t icmp_test15085[] = {
+0x9c, 0x6b, 0x00, 0x23, 0xbd, 0xb5, 0xd4, 0x3f,
+0xcb, 0xed, 0xd9, 0xb9, 0x08, 0x00, 0x45, 0x00,
+0x00, 0x3c, 0xbe, 0x02, 0x00, 0x00, 0xe6, 0x01,
+0x4b, 0x67, 0xcd, 0xfb, 0xf2, 0x67, 0x0a, 0x00,
+0x00, 0xf4, 0x00, 0x00, 0x53, 0x2b, 0x00, 0x01,
+0x02, 0x30, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66,
+0x67, 0x68, 0x69, 0x6a, 0x6b, 0x6c, 0x6d, 0x6e,
+0x6f, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76,
+0x77, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67,
+0x68, 0x69                                     
+};
+/*Frame 15085: 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface \Device\NPF_{EC6562A1-E9BD-4845-BFB6-53A7A886957C}, id 0
+    Section number: 1
+    Interface id: 0 (\Device\NPF_{EC6562A1-E9BD-4845-BFB6-53A7A886957C})
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Apr 13, 2024 09:39:41.111439000 Eastern Daylight Time
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1713015581.111439000 seconds
+    [Time delta from previous captured frame: 0.026275000 seconds]
+    [Time delta from previous displayed frame: 0.026275000 seconds]
+    [Time since reference or first frame: 54.669460000 seconds]
+    Frame Number: 15085
+    Frame Length: 74 bytes (592 bits)
+    Capture Length: 74 bytes (592 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:icmp:data]
+    [Coloring Rule Name: ICMP]
+    [Coloring Rule String: icmp || icmpv6]
+Ethernet II, Src: ARRISGro_ed:d9:b9 (d4:3f:cb:ed:d9:b9), Dst: 9c:6b:00:23:bd:b5 (9c:6b:00:23:bd:b5)
+    Destination: 9c:6b:00:23:bd:b5 (9c:6b:00:23:bd:b5)
+    Source: ARRISGro_ed:d9:b9 (d4:3f:cb:ed:d9:b9)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 205.251.242.103, Dst: 10.0.0.244
+Internet Control Message Protocol
+    Type: 0 (Echo (ping) reply)
+    Code: 0
+    Checksum: 0x532b [correct]
+    [Checksum Status: Good]
+    Identifier (BE): 1 (0x0001)
+    Identifier (LE): 256 (0x0100)
+    Sequence Number (BE): 560 (0x0230)
+    Sequence Number (LE): 12290 (0x3002)
+    [Request frame: 15084]
+    [Response time: 26.275 ms]
+    Data (32 bytes)
+        Data: 6162636465666768696a6b6c6d6e6f7071727374757677616263646566676869
+        [Length: 32]
+*/
