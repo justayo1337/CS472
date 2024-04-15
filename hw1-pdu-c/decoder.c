@@ -328,8 +328,8 @@ ICMP PACKET DETAILS
     printf("    sequence: 0x%04x\n",icmp_packet->icmp_echo_hdr.sequence);
     printf("    timestamp: 0x%x%x\n",icmp_packet->icmp_echo_hdr.timestamp,icmp_packet->icmp_echo_hdr.timestamp_ms);
     printf("    payload: %d bytes\n", payload_size);
-//    char * timest = get_ts_formatted(icmp_packet->icmp_echo_hdr.timestamp,icmp_packet->icmp_echo_hdr.timestamp_ms);
-//   printf("    ECHO Timestamp: TS = %s\n", timest);
+    char * timest = get_ts_formatted(icmp_packet->icmp_echo_hdr.timestamp,icmp_packet->icmp_echo_hdr.timestamp_ms);
+   printf("    ECHO Timestamp: %s\n", timest);
 
     //Now print the payload data
     print_icmp_payload(icmp_packet->icmp_payload, payload_size);
@@ -371,7 +371,7 @@ void print_icmp_payload(uint8_t *payload, uint16_t payload_size) {
 //function header, you can alter your output just make sure it looks
 //nice.  I provided the alogorithm for how I printed the above out
 //in the function header.
-    printf("\n\n    PAYLOAD\n    OFFSET     | CONTENTS\n");
+    printf("    PAYLOAD\n    OFFSET     | CONTENTS\n");
     printf("    -----------------------------------------------\n");
     printf("    0x%04x    |",0);
      for (int i = 0; i < payload_size; ++i ){

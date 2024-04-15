@@ -15,7 +15,7 @@ help:
 
 .PHONY: build
 build: *.c *.h
-	$(CC) $(CFLAGS) -o decoder-ayo *.c 
+	$(CC) $(CFLAGS) -o decoder *.c 
 
 .PHONY: run
 run: decoder
