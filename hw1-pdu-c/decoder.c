@@ -233,7 +233,7 @@ icmp_echo_packet_t *process_icmp_echo(icmp_packet_t *icmp){
     icmp_echo_packet_t  *ipt = (icmp_echo_packet_t  * ) icmp  ;
     ipt->icmp_echo_hdr.id = ntohs(ipt->icmp_echo_hdr.id);
     ipt->icmp_echo_hdr.sequence = ntohs(ipt->icmp_echo_hdr.sequence);
-    ipt->icmp_echo_hdr.timestamp = ntohl(ipt->icmp_echo_hdr.timestamp);
+//    ipt->icmp_echo_hdr.timestamp = ntohl(ipt->icmp_echo_hdr.timestamp);
     ipt->icmp_echo_hdr.timestamp_ms = ntohl(ipt->icmp_echo_hdr.timestamp_ms);
 
 
