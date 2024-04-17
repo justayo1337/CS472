@@ -301,7 +301,7 @@ Internet Control Message Protocol
 */
 
 /* Frame (74 bytes) */
-uint8_t  icmp_test_1389[] = {
+uint8_t  icmp_test_54[] = {
   0x00, 0x1d, 0x71, 0x72, 0x64, 0xc0, 0xb4, 0x8c,
   0x9d, 0xa0, 0xee, 0xf7, 0x08, 0x00, 0x45, 0x00,
   0x00, 0x54, 0x67, 0xfd, 0x40, 0x00, 0x40, 0x01,
@@ -356,5 +356,90 @@ Internet Control Message Protocol
     Timestamp from icmp data: Apr 17, 2024 15:10:26.000000000 EDT
     [Timestamp from icmp data (relative): 0.407540815 seconds]
     Data (48 bytes)
+
+*/
+
+/* Frame (74 bytes) */
+uint8_t  icmp_test_56[] = {
+  0xd4, 0x3f, 0xcb, 0xed, 0xd9, 0xb9, 0xb4, 0x8c,
+  0x9d, 0xa0, 0xee, 0xf7, 0x08, 0x00, 0x45, 0x00,
+  0x00, 0x54, 0x01, 0xeb, 0x40, 0x00, 0x40, 0x01,
+  0x1d, 0xbf, 0x0a, 0x00, 0x00, 0xf0, 0x08, 0x08,
+  0x08, 0x08, 0x08, 0x00, 0xce, 0x69, 0x45, 0x60,
+  0x00, 0x45, 0xc1, 0x35, 0x20, 0x66, 0x00, 0x00,
+  0x00, 0x00, 0x3e, 0x82, 0x05, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15,
+  0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d,
+  0x1e, 0x1f, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25,
+  0x26, 0x27, 0x28, 0x29, 0x2a, 0x2b, 0x2c, 0x2d,
+  0x2e, 0x2f, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35,
+  0x36, 0x37
+};
+
+
+/*
+ Frame 56: 98 bytes on wire (784 bits), 98 bytes captured (784 bits) on interface wlp5s0, id 0
+    Section number: 1
+    Interface id: 0 (wlp5s0)
+        Interface name: wlp5s0
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Apr 17, 2024 16:49:05.361053219 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1713386945.361053219 seconds
+    [Time delta from previous captured frame: 0.153006466 seconds]
+    [Time delta from previous displayed frame: 0.978195944 seconds]
+    [Time since reference or first frame: 2.270338561 seconds]
+    Frame Number: 56
+    Frame Length: 98 bytes (784 bits)
+    Capture Length: 98 bytes (784 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:icmp:data]
+    [Coloring Rule Name: ICMP]
+    [Coloring Rule String: icmp || icmpv6]
+Ethernet II, Src: AzureWav_a0:ee:f7 (b4:8c:9d:a0:ee:f7), Dst: ARRISGro_ed:d9:b9 (d4:3f:cb:ed:d9:b9)
+    Destination: ARRISGro_ed:d9:b9 (d4:3f:cb:ed:d9:b9)
+        Address: ARRISGro_ed:d9:b9 (d4:3f:cb:ed:d9:b9)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Source: AzureWav_a0:ee:f7 (b4:8c:9d:a0:ee:f7)
+        Address: AzureWav_a0:ee:f7 (b4:8c:9d:a0:ee:f7)
+        .... ..0. .... .... .... .... = LG bit: Globally unique address (factory default)
+        .... ...0 .... .... .... .... = IG bit: Individual address (unicast)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 10.0.0.240, Dst: 8.8.8.8
+    0100 .... = Version: 4
+    .... 0101 = Header Length: 20 bytes (5)
+    Differentiated Services Field: 0x00 (DSCP: CS0, ECN: Not-ECT)
+        0000 00.. = Differentiated Services Codepoint: Default (0)
+        .... ..00 = Explicit Congestion Notification: Not ECN-Capable Transport (0)
+    Total Length: 84
+    Identification: 0x01eb (491)
+    010. .... = Flags: 0x2, Don't fragment
+        0... .... = Reserved bit: Not set
+        .1.. .... = Don't fragment: Set
+        ..0. .... = More fragments: Not set
+    ...0 0000 0000 0000 = Fragment Offset: 0
+    Time to Live: 64
+    Protocol: ICMP (1)
+    Header Checksum: 0x1dbf [validation disabled]
+    [Header checksum status: Unverified]
+    Source Address: 10.0.0.240
+    Destination Address: 8.8.8.8
+Internet Control Message Protocol
+    Type: 8 (Echo (ping) request)
+    Code: 0
+    Checksum: 0xce69 [correct]
+    [Checksum Status: Good]
+    Identifier (BE): 17760 (0x4560)
+    Identifier (LE): 24645 (0x6045)
+    Sequence Number (BE): 69 (0x0045)
+    Sequence Number (LE): 17664 (0x4500)
+    [Response frame: 57]
+    Timestamp from icmp data: Apr 17, 2024 16:49:05.000000000 EDT
+    [Timestamp from icmp data (relative): 0.361053219 seconds]
+    Data (48 bytes)
+        Data: 3e82050000000000101112131415161718191a1b1c1d1e1f202122232425262728292a2b…
+        [Length: 48]
 
 */

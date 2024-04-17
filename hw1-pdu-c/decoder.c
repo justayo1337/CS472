@@ -22,7 +22,9 @@ test_packet_t TEST_CASES[] = {
     MAKE_PACKET(raw_packet_arp_frame78),
     MAKE_PACKET(arp_test_15328),
     MAKE_PACKET(icmp_test_55),
-    MAKE_PACKET(icmp_test_1389)
+    MAKE_PACKET(icmp_test_54),
+    MAKE_PACKET(icmp_test_56)
+
 };
 
 int main(int argc, char **argv) {
@@ -233,7 +235,7 @@ icmp_echo_packet_t *process_icmp_echo(icmp_packet_t *icmp){
     icmp_echo_packet_t  *ipt = (icmp_echo_packet_t  * ) icmp  ;
     ipt->icmp_echo_hdr.id = ntohs(ipt->icmp_echo_hdr.id);
     ipt->icmp_echo_hdr.sequence = ntohs(ipt->icmp_echo_hdr.sequence);
-//    ipt->icmp_echo_hdr.timestamp = ntohl(ipt->icmp_echo_hdr.timestamp);
+    ipt->icmp_echo_hdr.timestamp = ntohl(ipt->icmp_echo_hdr.timestamp);
     ipt->icmp_echo_hdr.timestamp_ms = ntohl(ipt->icmp_echo_hdr.timestamp_ms);
 
 
