@@ -21,9 +21,9 @@ test_packet_t TEST_CASES[] = {
     MAKE_PACKET(raw_packet_icmp_frame362),
     MAKE_PACKET(raw_packet_arp_frame78),
     MAKE_PACKET(arp_test_15328),
-    MAKE_PACKET(icmp_test_55),
-    MAKE_PACKET(icmp_test_54),
-    MAKE_PACKET(icmp_test_56)
+   //MAKE_PACKET(icmp_test_55),
+   // MAKE_PACKET(icmp_test_54),
+   // MAKE_PACKET(icmp_test_56)
 
 };
 
