@@ -242,101 +242,119 @@ Address Resolution Protocol (reply)
 
 
 //icmp test packets
-/* Frame (72 bytes) */
-uint8_t icmp_test5997[] = {
-0x9c, 0x6b, 0x00, 0x23, 0xbd, 0xb5, 0xd4, 0x3f, 
-0xcb, 0xed, 0xd9, 0xb9, 0x08, 0x00, 0x45, 0xc0, 
-0x00, 0x3a, 0xeb, 0xd7, 0x00, 0x00, 0x40, 0x01, 
-0x79, 0x37, 0x0a, 0x00, 0x00, 0x01, 0x0a, 0x00, 
-0x00, 0xf4, 0x03, 0x03, 0x12, 0x0d, 0x00, 0x00, 
-0x00, 0x00, 0x45, 0x00, 0x00, 0x1e, 0xc9, 0xb7, 
-0x00, 0x00, 0x80, 0x11, 0x5c, 0x23, 0x0a, 0x00, 
-0x00, 0xf4, 0x0a, 0x00, 0x00, 0x01, 0xee, 0x94, 
-0x14, 0xe7, 0x00, 0x0a, 0xe7, 0x69, 0x00, 0x00  
+uint8_t  icmp_test_55[] ={
+  0xb4, 0x8c, 0x9d, 0xa0, 0xee, 0xf7, 0x00, 0x1d,
+  0x71, 0x72, 0x64, 0xc0, 0x08, 0x00, 0x45, 0x00,
+  0x00, 0x54, 0x67, 0xfd, 0x40, 0x00, 0xec, 0x01,
+  0xb9, 0xbc, 0x34, 0x5e, 0xec, 0xf8, 0x0a, 0xfa,
+  0x40, 0x9e, 0x00, 0x00, 0x93, 0x0d, 0x32, 0x09,
+  0x00, 0x5a, 0xa2, 0x1e, 0x20, 0x66, 0x00, 0x00,
+  0x00, 0x00, 0xb3, 0x37, 0x06, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15,
+  0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d,
+  0x1e, 0x1f, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25,
+  0x26, 0x27, 0x28, 0x29, 0x2a, 0x2b, 0x2c, 0x2d,
+  0x2e, 0x2f, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35,
+  0x36, 0x37                               
 };
 
 /*
-Frame 5997: 72 bytes on wire (576 bits), 72 bytes captured (576 bits) on interface \Device\NPF_{EC6562A1-E9BD-4845-BFB6-53A7A886957C}, id 0
+Frame 55: 98 bytes on wire (784 bits), 98 bytes captured (784 bits) on interface wlp5s0, id 0
     Section number: 1
-    Interface id: 0 (\Device\NPF_{EC6562A1-E9BD-4845-BFB6-53A7A886957C})
+    Interface id: 0 (wlp5s0)
+        Interface name: wlp5s0
     Encapsulation type: Ethernet (1)
-    Arrival Time: Apr 13, 2024 09:39:09.119312000 Eastern Daylight Time
+    Arrival Time: Apr 17, 2024 15:10:26.415633711 EDT
     [Time shift for this packet: 0.000000000 seconds]
-    Epoch Time: 1713015549.119312000 seconds
-    [Time delta from previous captured frame: 0.002610000 seconds]
-    [Time delta from previous displayed frame: 10.627387000 seconds]
-    [Time since reference or first frame: 22.677333000 seconds]
-    Frame Number: 5997
-    Frame Length: 72 bytes (576 bits)
-    Capture Length: 72 bytes (576 bits)
-    [Frame is marked: False]
-    [Frame is ignored: False]
-    [Protocols in frame: eth:ethertype:ip:icmp:ip:udp:portcontrol]
-    [Coloring Rule Name: ICMP errors]
-    [Coloring Rule String: icmp.type in { 3..5, 11 } || icmpv6.type in { 1..4 }]
-Ethernet II, Src: ARRISGro_ed:d9:b9 (d4:3f:cb:ed:d9:b9), Dst: 9c:6b:00:23:bd:b5 (9c:6b:00:23:bd:b5)
-    Destination: 9c:6b:00:23:bd:b5 (9c:6b:00:23:bd:b5)
-    Source: ARRISGro_ed:d9:b9 (d4:3f:cb:ed:d9:b9)
-    Type: IPv4 (0x0800)
-Internet Protocol Version 4, Src: 10.0.0.1, Dst: 10.0.0.244
-Internet Control Message Protocol
-    Type: 3 (Destination unreachable)
-    Code: 3 (Port unreachable)
-    Checksum: 0x120d [correct]
-    [Checksum Status: Good]
-    Unused: 00000000
-    Internet Protocol Version 4, Src: 10.0.0.244, Dst: 10.0.0.1
-    User Datagram Protocol, Src Port: 61076, Dst Port: 5351
-NAT Port Mapping Protocol, External Address Request
-*/
-
-uint8_t icmp_test15085[] = {
-0x9c, 0x6b, 0x00, 0x23, 0xbd, 0xb5, 0xd4, 0x3f,
-0xcb, 0xed, 0xd9, 0xb9, 0x08, 0x00, 0x45, 0x00,
-0x00, 0x3c, 0xbe, 0x02, 0x00, 0x00, 0xe6, 0x01,
-0x4b, 0x67, 0xcd, 0xfb, 0xf2, 0x67, 0x0a, 0x00,
-0x00, 0xf4, 0x00, 0x00, 0x53, 0x2b, 0x00, 0x01,
-0x02, 0x30, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66,
-0x67, 0x68, 0x69, 0x6a, 0x6b, 0x6c, 0x6d, 0x6e,
-0x6f, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76,
-0x77, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67,
-0x68, 0x69                                     
-};
-/*Frame 15085: 74 bytes on wire (592 bits), 74 bytes captured (592 bits) on interface \Device\NPF_{EC6562A1-E9BD-4845-BFB6-53A7A886957C}, id 0
-    Section number: 1
-    Interface id: 0 (\Device\NPF_{EC6562A1-E9BD-4845-BFB6-53A7A886957C})
-    Encapsulation type: Ethernet (1)
-    Arrival Time: Apr 13, 2024 09:39:41.111439000 Eastern Daylight Time
-    [Time shift for this packet: 0.000000000 seconds]
-    Epoch Time: 1713015581.111439000 seconds
-    [Time delta from previous captured frame: 0.026275000 seconds]
-    [Time delta from previous displayed frame: 0.026275000 seconds]
-    [Time since reference or first frame: 54.669460000 seconds]
-    Frame Number: 15085
-    Frame Length: 74 bytes (592 bits)
-    Capture Length: 74 bytes (592 bits)
+    Epoch Time: 1713381026.415633711 seconds
+    [Time delta from previous captured frame: 0.008092896 seconds]
+    [Time delta from previous displayed frame: 0.008092896 seconds]
+    [Time since reference or first frame: 3.591004211 seconds]
+    Frame Number: 55
+    Frame Length: 98 bytes (784 bits)
+    Capture Length: 98 bytes (784 bits)
     [Frame is marked: False]
     [Frame is ignored: False]
     [Protocols in frame: eth:ethertype:ip:icmp:data]
     [Coloring Rule Name: ICMP]
     [Coloring Rule String: icmp || icmpv6]
-Ethernet II, Src: ARRISGro_ed:d9:b9 (d4:3f:cb:ed:d9:b9), Dst: 9c:6b:00:23:bd:b5 (9c:6b:00:23:bd:b5)
-    Destination: 9c:6b:00:23:bd:b5 (9c:6b:00:23:bd:b5)
-    Source: ARRISGro_ed:d9:b9 (d4:3f:cb:ed:d9:b9)
+Ethernet II, Src: Cisco_72:64:c0 (00:1d:71:72:64:c0), Dst: AzureWav_a0:ee:f7 (b4:8c:9d:a0:ee:f7)
+    Destination: AzureWav_a0:ee:f7 (b4:8c:9d:a0:ee:f7)
+    Source: Cisco_72:64:c0 (00:1d:71:72:64:c0)
     Type: IPv4 (0x0800)
-Internet Protocol Version 4, Src: 205.251.242.103, Dst: 10.0.0.244
+Internet Protocol Version 4, Src: 52.94.236.248, Dst: 10.250.64.158
 Internet Control Message Protocol
     Type: 0 (Echo (ping) reply)
     Code: 0
-    Checksum: 0x532b [correct]
+    Checksum: 0x930d [correct]
     [Checksum Status: Good]
-    Identifier (BE): 1 (0x0001)
-    Identifier (LE): 256 (0x0100)
-    Sequence Number (BE): 560 (0x0230)
-    Sequence Number (LE): 12290 (0x3002)
-    [Request frame: 15084]
-    [Response time: 26.275 ms]
-    Data (32 bytes)
-        Data: 6162636465666768696a6b6c6d6e6f7071727374757677616263646566676869
-        [Length: 32]
+    Identifier (BE): 12809 (0x3209)
+    Identifier (LE): 2354 (0x0932)
+    Sequence Number (BE): 90 (0x005a)
+    Sequence Number (LE): 23040 (0x5a00)
+    [Request frame: 54]
+    [Response time: 8.093 ms]
+    Timestamp from icmp data: Apr 17, 2024 15:10:26.000000000 EDT
+    [Timestamp from icmp data (relative): 0.415633711 seconds]
+    Data (48 bytes)
+
+*/
+
+/* Frame (74 bytes) */
+uint8_t  icmp_test_1389[] = {
+  0x00, 0x1d, 0x71, 0x72, 0x64, 0xc0, 0xb4, 0x8c,
+  0x9d, 0xa0, 0xee, 0xf7, 0x08, 0x00, 0x45, 0x00,
+  0x00, 0x54, 0x67, 0xfd, 0x40, 0x00, 0x40, 0x01,
+  0x65, 0xbd, 0x0a, 0xfa, 0x40, 0x9e, 0x34, 0x5e,
+  0xec, 0xf8, 0x08, 0x00, 0x8b, 0x0d, 0x32, 0x09,
+  0x00, 0x5a, 0xa2, 0x1e, 0x20, 0x66, 0x00, 0x00,
+  0x00, 0x00, 0xb3, 0x37, 0x06, 0x00, 0x00, 0x00,
+  0x00, 0x00, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15,
+  0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d,
+  0x1e, 0x1f, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25,
+  0x26, 0x27, 0x28, 0x29, 0x2a, 0x2b, 0x2c, 0x2d,
+  0x2e, 0x2f, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35,
+  0x36, 0x37
+};
+
+
+/*
+    Frame 54: 98 bytes on wire (784 bits), 98 bytes captured (784 bits) on interface wlp5s0, id 0
+    Section number: 1
+    Interface id: 0 (wlp5s0)
+        Interface name: wlp5s0
+    Encapsulation type: Ethernet (1)
+    Arrival Time: Apr 17, 2024 15:10:26.407540815 EDT
+    [Time shift for this packet: 0.000000000 seconds]
+    Epoch Time: 1713381026.407540815 seconds
+    [Time delta from previous captured frame: 0.074632038 seconds]
+    [Time delta from previous displayed frame: 0.979708699 seconds]
+    [Time since reference or first frame: 3.582911315 seconds]
+    Frame Number: 54
+    Frame Length: 98 bytes (784 bits)
+    Capture Length: 98 bytes (784 bits)
+    [Frame is marked: False]
+    [Frame is ignored: False]
+    [Protocols in frame: eth:ethertype:ip:icmp:data]
+    [Coloring Rule Name: ICMP]
+    [Coloring Rule String: icmp || icmpv6]
+Ethernet II, Src: AzureWav_a0:ee:f7 (b4:8c:9d:a0:ee:f7), Dst: Cisco_72:64:c0 (00:1d:71:72:64:c0)
+    Destination: Cisco_72:64:c0 (00:1d:71:72:64:c0)
+    Source: AzureWav_a0:ee:f7 (b4:8c:9d:a0:ee:f7)
+    Type: IPv4 (0x0800)
+Internet Protocol Version 4, Src: 10.250.64.158, Dst: 52.94.236.248
+Internet Control Message Protocol
+    Type: 8 (Echo (ping) request)
+    Code: 0
+    Checksum: 0x8b0d [correct]
+    [Checksum Status: Good]
+    Identifier (BE): 12809 (0x3209)
+    Identifier (LE): 2354 (0x0932)
+    Sequence Number (BE): 90 (0x005a)
+    Sequence Number (LE): 23040 (0x5a00)
+    [Response frame: 55]
+    Timestamp from icmp data: Apr 17, 2024 15:10:26.000000000 EDT
+    [Timestamp from icmp data (relative): 0.407540815 seconds]
+    Data (48 bytes)
+
 */
