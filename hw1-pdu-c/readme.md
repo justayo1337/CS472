@@ -50,8 +50,8 @@ mine and putting in documentation relevant to your specific implementation.
 # Results from my solution with the packets in the `testframes.h` file and the pcaps
 
 ```bash
-ayo@raspberrypi  ~/classes/cs472/hw1-pdu-c   main ±  make run  
-./decoder
+ ayo@raspberrypi  ~/classes/cs472/hw1-pdu-c   main ±  make build; ./decoder
+gcc                      -g              -o decoder *.c 
 STARTING...
 --------------------------------------------------
 TESTING A NEW PACKET
@@ -73,12 +73,13 @@ ICMP Type 8
 ICMP PACKET DETAILS
     type: 0x0008
     checksum: 0x7bda
-    id(BE): 0x4859
-    id(LE): 0x5948
-    sequence(BE): 0x0000
-    sequence(LE): 0x0000
-    timestamp: 0x650e01eee1cc
+    id(BE): 18521 (0x4859)
+    id(LE): 22856 (0x5948)
+    sequence(BE): 0 (0x0000)
+    sequence(LE): 0 (0x0000)
     payload: 48 bytes
+    timestamp: 0x650e01eee1cc
+    timestamp: 0xee010e65cce10000
     ECHO Timestamp 1(Probable): TS = 2023-09-22 22:06:54.57804
     ECHO Timestamp 2(Probable): TS = 2096-07-13 20:37:09.3437297664
 
@@ -135,12 +136,13 @@ ICMP Type 8
 ICMP PACKET DETAILS
     type: 0x0008
     checksum: 0x03bb
-    id(BE): 0x4c26
-    id(LE): 0x264c
-    sequence(BE): 0x0010
-    sequence(LE): 0x0010
-    timestamp: 0x74020660
+    id(BE): 19494 (0x4c26)
+    id(LE): 9804 (0x264c)
+    sequence(BE): 16 (0x0010)
+    sequence(LE): 4096 (0x1000)
     payload: 48 bytes
+    timestamp: 0x74020660
+    timestamp: 0x662040070
     ECHO Timestamp 1(Probable): TS = 1973-11-08 21:45:10.0
     ECHO Timestamp 2(Probable): TS = 2024-04-17 22:32:55.0
 
@@ -163,12 +165,13 @@ ICMP Type 8
 ICMP PACKET DETAILS
     type: 0x0008
     checksum: 0xfd4d
-    id(BE): 0x4b35
-    id(LE): 0x354b
-    sequence(BE): 0x0018
-    sequence(LE): 0x0018
-    timestamp: 0xe43e20660
+    id(BE): 19253 (0x4b35)
+    id(LE): 13643 (0x354b)
+    sequence(BE): 24 (0x0018)
+    sequence(LE): 6144 (0x1800)
     payload: 48 bytes
+    timestamp: 0xe43e20660
+    timestamp: 0x66203ee40
     ECHO Timestamp 1(Probable): TS = 2091-05-06 08:59:34.0
     ECHO Timestamp 2(Probable): TS = 2024-04-17 22:28:04.0
 
@@ -183,4 +186,4 @@ ICMP PACKET DETAILS
     0x0028    |  0x30  0x31  0x32  0x33  0x34  0x35  0x36  0x37
 DONE
  ayo@raspberrypi  ~/classes/cs472/hw1-pdu-c   main ±  
- ```
+```

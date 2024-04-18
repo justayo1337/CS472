@@ -252,14 +252,24 @@ void print_icmp_echo(icmp_echo_packet_t *icmp_packet){
     printf("    type: 0x%04x\n",icmp_packet->icmp_echo_hdr.icmp_hdr.type); 
     printf("    checksum: 0x%04x\n",icmp_packet->icmp_echo_hdr.icmp_hdr.checksum); 
 
-    // following the similar method wireshark utilizes here
-    printf("    id(BE): 0x%04x\n",icmp_packet->icmp_echo_hdr.id);
-    printf("    id(LE): 0x%04x\n",htons(icmp_packet->icmp_echo_hdr.id));
-    printf("    sequence(BE): 0x%04x\n",icmp_packet->icmp_echo_hdr.sequence);
-    printf("    sequence(LE): 0x%04x\n",icmp_packet->icmp_echo_hdr.sequence);
-    printf("    timestamp: 0x%x%x\n",icmp_packet->icmp_echo_hdr.timestamp,icmp_packet->icmp_echo_hdr.timestamp_ms);
+    /* following the similar method wireshark utilizes here
+    and showing both values for the ID and Sequence
+    e.g
+    Identifier (BE): 18521 (0x4859)
+    Identifier (LE): 22856 (0x5948)
+    Sequence Number (BE): 0 (0x0000)
+    Sequence Number (LE): 0 (0x0000)
+ 
+
+    */
+    printf("    id(BE): %d (0x%04x)\n",icmp_packet->icmp_echo_hdr.id,icmp_packet->icmp_echo_hdr.id);
+    printf("    id(LE): %d (0x%04x)\n",htons(icmp_packet->icmp_echo_hdr.id),htons(icmp_packet->icmp_echo_hdr.id));
+    printf("    sequence(BE): %d (0x%04x)\n",icmp_packet->icmp_echo_hdr.sequence,icmp_packet->icmp_echo_hdr.sequence);
+    printf("    sequence(LE): %d (0x%04x)\n",htons(icmp_packet->icmp_echo_hdr.sequence),htons(icmp_packet->icmp_echo_hdr.sequence));
     printf("    payload: %d bytes\n", payload_size);
-   
+    printf("    timestamp: 0x%x%x\n",icmp_packet->icmp_echo_hdr.timestamp,icmp_packet->icmp_echo_hdr.timestamp_ms);
+    printf("    timestamp: 0x%x%x\n",htonl(icmp_packet->icmp_echo_hdr.timestamp),htonl(icmp_packet->icmp_echo_hdr.timestamp_ms));
+
     /* doing this because timestamp isn't native to ICMP Echo see:
      https://stackoverflow.com/questions/70175164/icmp-timestamps-added-to-ping-echo-requests-in-linux-how-are-they-represented-t/71461124#71461124
      https://gitlab.com/wireshark/wireshark/-/issues/19283
