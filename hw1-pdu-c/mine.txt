@@ -68,4 +68,11 @@ ARP PACKET DETAILS
      tpa: 10.0.0.61
      tha: b2:a0:24:17:8e:bb
 
+--------------------------------------------------
+TESTING A NEW PACKET
+--------------------------------------------------
+Packet length = 84 bytes
+Detected raw frame type from ethernet header: 0x6455
+UNKNOWN Frame type?
+
 DONE

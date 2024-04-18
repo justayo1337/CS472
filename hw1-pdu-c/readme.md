@@ -44,3 +44,143 @@ understand what is going on.
 I also put a **TON** of documentation in the code to help you.  To make things
 easier on the grader, please thin out the documentation in your submission, removing
 mine and putting in documentation relevant to your specific implementation.
+
+---\
+
+# Results from my solution with the packets in the `testframes.h` file and the pcaps
+
+```text
+ ayo@raspberrypi  ~/classes/cs472/hw1-pdu-c   main ±  make run  
+./decoder
+STARTING...
+--------------------------------------------------
+TESTING A NEW PACKET
+--------------------------------------------------
+Packet length = 94 bytes
+Detected raw frame type from ethernet header: 0x800
+Frame type = IPv4, now lets check for ICMP...
+ICMP Type 11
+Error: Expected an ECHO REQUEST or an ECHO response
+ERROR: We have an ICMP packet, but it is not of type echo
+
+--------------------------------------------------
+TESTING A NEW PACKET
+--------------------------------------------------
+Packet length = 98 bytes
+Detected raw frame type from ethernet header: 0x800
+Frame type = IPv4, now lets check for ICMP...
+ICMP Type 8
+ICMP PACKET DETAILS
+    type: 0x0008
+    checksum: 0x7bda
+    id(BE): 0x4859
+    id(LE): 0x5948
+    sequence(BE): 0x0000
+    sequence(LE): 0x0000
+    timestamp: 0x650e01eee1cc
+    payload: 48 bytes
+    ECHO Timestamp 1(Probable): TS = 2023-09-22 22:06:54.57804
+    Possible ECHO Timestamp 2(Probable): TS = 2096-07-13 20:37:09.3437297664
+
+    PAYLOAD
+    OFFSET    | CONTENTS
+    -------------------------------------------------------------
+    0x0000    |  0x08  0x09  0x0a  0x0b  0x0c  0x0d  0x0e  0x0f
+    0x0008    |  0x10  0x11  0x12  0x13  0x14  0x15  0x16  0x17
+    0x0010    |  0x18  0x19  0x1a  0x1b  0x1c  0x1d  0x1e  0x1f
+    0x0018    |  0x20  0x21  0x22  0x23  0x24  0x25  0x26  0x27
+    0x0020    |  0x28  0x29  0x2a  0x2b  0x2c  0x2d  0x2e  0x2f
+    0x0028    |  0x30  0x31  0x32  0x33  0x34  0x35  0x36  0x37
+--------------------------------------------------
+TESTING A NEW PACKET
+--------------------------------------------------
+Packet length = 60 bytes
+Detected raw frame type from ethernet header: 0x806
+Packet type = ARP
+ARP PACKET DETAILS
+     htype: 0x0001
+     ptype: 0x0800
+     hlen: 6
+     plen: 4
+     op: 1 (ARP REQUEST)
+     spa: 192.168.50.1
+     sha: a0:36:bc:62:ed:50
+     tpa: 192.168.50.99
+     tha: 00:00:00:00:00:00
+
+--------------------------------------------------
+TESTING A NEW PACKET
+--------------------------------------------------
+Packet length = 42 bytes
+Detected raw frame type from ethernet header: 0x806
+Packet type = ARP
+ARP PACKET DETAILS
+     htype: 0x0001
+     ptype: 0x0800
+     hlen: 6
+     plen: 4
+     op: 2 (ARP RESPONSE)
+     spa: 10.0.0.244
+     sha: 9c:6b:00:23:bd:b5
+     tpa: 10.0.0.61
+     tha: b2:a0:24:17:8e:bb
+
+--------------------------------------------------
+TESTING A NEW PACKET
+--------------------------------------------------
+Packet length = 98 bytes
+Detected raw frame type from ethernet header: 0x800
+Frame type = IPv4, now lets check for ICMP...
+ICMP Type 8
+ICMP PACKET DETAILS
+    type: 0x0008
+    checksum: 0x03bb
+    id(BE): 0x4c26
+    id(LE): 0x264c
+    sequence(BE): 0x0010
+    sequence(LE): 0x0010
+    timestamp: 0x74020660
+    payload: 48 bytes
+    ECHO Timestamp 1(Probable): TS = 1973-11-08 21:45:10.0
+    Possible ECHO Timestamp 2(Probable): TS = 2024-04-17 22:32:55.0
+
+    PAYLOAD
+    OFFSET    | CONTENTS
+    -------------------------------------------------------------
+    0x0000    |  0xbb  0x95  0x06  0x00  0x00  0x00  0x00  0x00
+    0x0008    |  0x10  0x11  0x12  0x13  0x14  0x15  0x16  0x17
+    0x0010    |  0x18  0x19  0x1a  0x1b  0x1c  0x1d  0x1e  0x1f
+    0x0018    |  0x20  0x21  0x22  0x23  0x24  0x25  0x26  0x27
+    0x0020    |  0x28  0x29  0x2a  0x2b  0x2c  0x2d  0x2e  0x2f
+    0x0028    |  0x30  0x31  0x32  0x33  0x34  0x35  0x36  0x37
+--------------------------------------------------
+TESTING A NEW PACKET
+--------------------------------------------------
+Packet length = 98 bytes
+Detected raw frame type from ethernet header: 0x800
+Frame type = IPv4, now lets check for ICMP...
+ICMP Type 8
+ICMP PACKET DETAILS
+    type: 0x0008
+    checksum: 0xfd4d
+    id(BE): 0x4b35
+    id(LE): 0x354b
+    sequence(BE): 0x0018
+    sequence(LE): 0x0018
+    timestamp: 0xe43e20660
+    payload: 48 bytes
+    ECHO Timestamp 1(Probable): TS = 2091-05-06 08:59:34.0
+    Possible ECHO Timestamp 2(Probable): TS = 2024-04-17 22:28:04.0
+
+    PAYLOAD
+    OFFSET    | CONTENTS
+    -------------------------------------------------------------
+    0x0000    |  0xe2  0xec  0x09  0x00  0x00  0x00  0x00  0x00
+    0x0008    |  0x10  0x11  0x12  0x13  0x14  0x15  0x16  0x17
+    0x0010    |  0x18  0x19  0x1a  0x1b  0x1c  0x1d  0x1e  0x1f
+    0x0018    |  0x20  0x21  0x22  0x23  0x24  0x25  0x26  0x27
+    0x0020    |  0x28  0x29  0x2a  0x2b  0x2c  0x2d  0x2e  0x2f
+    0x0028    |  0x30  0x31  0x32  0x33  0x34  0x35  0x36  0x37
+DONE
+ ayo@raspberrypi  ~/classes/cs472/hw1-pdu-c   main ± 
+ ```

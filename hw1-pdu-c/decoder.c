@@ -22,8 +22,8 @@ test_packet_t TEST_CASES[] = {
     MAKE_PACKET(raw_packet_arp_frame78),
     MAKE_PACKET(arp_test_15328),
    //MAKE_PACKET(icmp_test_55),
-   // MAKE_PACKET(icmp_test_54),
-   // MAKE_PACKET(icmp_test_56)
+    MAKE_PACKET(icmp_test_54),
+    MAKE_PACKET(icmp_test_56)
 
 };
 
@@ -246,15 +246,29 @@ icmp_echo_packet_t *process_icmp_echo(icmp_packet_t *icmp){
 void print_icmp_echo(icmp_echo_packet_t *icmp_packet){
 //Takes the icmp_packet parameter, of type icmp_echo_packet_t 
 //and prints it out nicely.      
-    printf("ICMP PACKET DETAILS\n");
+    printf("ICMP PACKET DETAILS\n"); 
     uint16_t payload_size = ICMP_Payload_Size(icmp_packet);
+    icmp_packet->ip.ip_hdr.total_length = ntohs(icmp_packet->ip.ip_hdr.total_length );
     printf("    type: 0x%04x\n",icmp_packet->icmp_echo_hdr.icmp_hdr.type); 
     printf("    checksum: 0x%04x\n",icmp_packet->icmp_echo_hdr.icmp_hdr.checksum); 
-    printf("    id: 0x%04x\n",icmp_packet->icmp_echo_hdr.id);
-    printf("    sequence: 0x%04x\n",icmp_packet->icmp_echo_hdr.sequence);
+
+    // following the similar method wireshark utilizes here
+    printf("    id(BE): 0x%04x\n",icmp_packet->icmp_echo_hdr.id);
+    printf("    id(LE): 0x%04x\n",htons(icmp_packet->icmp_echo_hdr.id));
+    printf("    sequence(BE): 0x%04x\n",icmp_packet->icmp_echo_hdr.sequence);
+    printf("    sequence(LE): 0x%04x\n",icmp_packet->icmp_echo_hdr.sequence);
     printf("    timestamp: 0x%x%x\n",icmp_packet->icmp_echo_hdr.timestamp,icmp_packet->icmp_echo_hdr.timestamp_ms);
     printf("    payload: %d bytes\n", payload_size);
-    printf("    ECHO Timestamp: %s\n",  get_ts_formatted(icmp_packet->icmp_echo_hdr.timestamp,icmp_packet->icmp_echo_hdr.timestamp_ms));
+   
+    /* doing this because timestamp isn't native to ICMP Echo see:
+     https://stackoverflow.com/questions/70175164/icmp-timestamps-added-to-ping-echo-requests-in-linux-how-are-they-represented-t/71461124#71461124
+     https://gitlab.com/wireshark/wireshark/-/issues/19283
+     the order in which the bytes are sent over the network is 
+     dependent on the implementation of ping/ the utility in use to send the icmp packets, so the bytes are not always sent in network byte order/big endian
+     The value differs based on which OS is in use
+*/
+    printf("    ECHO Timestamp 1(Probable): %s",  get_ts_formatted(icmp_packet->icmp_echo_hdr.timestamp,icmp_packet->icmp_echo_hdr.timestamp_ms));
+    printf("    Possible ECHO Timestamp 2(Probable): %s\n",  get_ts_formatted(htonl(icmp_packet->icmp_echo_hdr.timestamp),htonl(icmp_packet->icmp_echo_hdr.timestamp_ms)));
 
     //Now print the payload data
     print_icmp_payload(icmp_packet->icmp_payload, payload_size);
