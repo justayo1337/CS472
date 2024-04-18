@@ -268,7 +268,7 @@ void print_icmp_echo(icmp_echo_packet_t *icmp_packet){
      The value differs based on which OS is in use
 */
     printf("    ECHO Timestamp 1(Probable): %s",  get_ts_formatted(icmp_packet->icmp_echo_hdr.timestamp,icmp_packet->icmp_echo_hdr.timestamp_ms));
-    printf("    Possible ECHO Timestamp 2(Probable): %s\n",  get_ts_formatted(htonl(icmp_packet->icmp_echo_hdr.timestamp),htonl(icmp_packet->icmp_echo_hdr.timestamp_ms)));
+    printf("    ECHO Timestamp 2(Probable): %s\n",  get_ts_formatted(htonl(icmp_packet->icmp_echo_hdr.timestamp),htonl(icmp_packet->icmp_echo_hdr.timestamp_ms)));
 
     //Now print the payload data
     print_icmp_payload(icmp_packet->icmp_payload, payload_size);
