@@ -19,11 +19,12 @@
 test_packet_t TEST_CASES[] = {
     MAKE_PACKET(raw_packet_icmp_frame198),
     MAKE_PACKET(raw_packet_icmp_frame362),
-    MAKE_PACKET(raw_packet_arp_frame78),
-    MAKE_PACKET(arp_test_15328),
-   //MAKE_PACKET(icmp_test_55),
-    MAKE_PACKET(icmp_test_54),
-    MAKE_PACKET(icmp_test_56)
+    MAKE_PACKET(raw_packet_arp_frame78), 
+    //extra tests from my side
+  //  MAKE_PACKET(arp_test_15328),
+ //  MAKE_PACKET(icmp_test_55),
+//   MAKE_PACKET(icmp_test_54),
+   MAKE_PACKET(icmp_test_56)
 
 };
 
@@ -123,13 +124,11 @@ void decode_raw_packet(uint8_t *packet, uint64_t packet_len){
  */
 arp_packet_t *process_arp(raw_packet_t raw_packet) {
     
-    //TODO: Implement this function.  Convert raw_packet via
+    //Converts raw_packet via
     //type conversion to arp_packet_t and then convert the
     //network byte order fields to host byte order fields using
-    //ntohs() and/or ntohl().  Return a pointer to an arp_packet_t
-    //You do not need to allocate any memory. 
-
-
+    //ntohs() and/or ntohl().  Returns a pointer to an arp_packet_t
+    
     arp_packet_t  *ep = (arp_packet_t *) raw_packet;
     ep->eth_hdr.frame_type = ntohs(ep->eth_hdr.frame_type );
     ep->arp_hdr.htype = ntohs(ep->arp_hdr.htype );
@@ -259,9 +258,9 @@ void print_icmp_echo(icmp_echo_packet_t *icmp_packet){
     Identifier (LE): 22856 (0x5948)
     Sequence Number (BE): 0 (0x0000)
     Sequence Number (LE): 0 (0x0000)
- 
-
     */
+
+
     printf("    id(BE): %d (0x%04x)\n",icmp_packet->icmp_echo_hdr.id,icmp_packet->icmp_echo_hdr.id);
     printf("    id(LE): %d (0x%04x)\n",htons(icmp_packet->icmp_echo_hdr.id),htons(icmp_packet->icmp_echo_hdr.id));
     printf("    sequence(BE): %d (0x%04x)\n",icmp_packet->icmp_echo_hdr.sequence,icmp_packet->icmp_echo_hdr.sequence);
