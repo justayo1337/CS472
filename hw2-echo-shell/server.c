@@ -9,9 +9,11 @@
 #include <unistd.h>
 #include <sys/un.h>
 
+#define EOF '\x07'
 #define BUFF_SZ 512
 static uint8_t send_buffer[BUFF_SZ];
 static uint8_t recv_buffer[BUFF_SZ];
+
 
 /*
  *  A very simple database structure for this assignment, yes, i 
@@ -74,6 +76,12 @@ static void process_requests(int listen_socket){
 
         printf("\t RECEIVED REQ...\n");
 
+        while(ret= (recv(data_socket,recv_buffer,BUFF_SZ,0)) > 0){
+            
+        }else{
+            perror("./server");
+            exit(EXIT_FAILURE);
+        }
         /*
          * TODO:  Handle the rest of the loop, basically you need to:
          *
