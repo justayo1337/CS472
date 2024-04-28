@@ -10,7 +10,8 @@
 #include <unistd.h>
 #include <sys/un.h>
 
-#define BUFF_SZ 512
+#define BUFF_SZ 2048
+#define SERVEOF '\x07'
 static uint8_t send_buffer[BUFF_SZ];
 static uint8_t recv_buffer[BUFF_SZ];
 
@@ -71,7 +72,10 @@ static void init_header(cs472_proto_header_t *header, int req_cmd, char *reqData
 
     header->proto = PROTO_CS_FUN;
     header->cmd = req_cmd;
-
+    header->ver = PROTO_VER_1;
+    header->dir = 0;
+    header->atm = TERM_WINTER;
+    header->ay = 2024;
     //TODO: Setup other header fields, eg., header->ver, header->dir, header->atm, header->ay
 
     //switch based on the command
@@ -105,6 +109,7 @@ static void start_client(cs472_proto_header_t *header, uint8_t *packet){
     struct sockaddr_in addr;
     int data_socket;
     int ret;
+    int r;
 
     /* Create local socket. */
 
@@ -130,6 +135,16 @@ static void start_client(cs472_proto_header_t *header, uint8_t *packet){
     addr.sin_addr.s_addr = inet_addr("127.0.0.1");
     addr.sin_port = htons(PORT_NUM);
 
+    if (ret=(connect(data_socket,(const struct sockaddr *)&addr,sizeof(struct sockaddr_in))) == 0){
+        r = send(data_socket,packet,sizeof(packet) ,0);
+        if (r < 0){
+            perror("send");
+        }
+    }else{
+        perror("connect");
+        exit(EXIT_FAILURE);
+    }
+    
     /*
      * TODO:  The next things you need to do is to handle the cleint
      * socket to send things to the server, basically make the following
@@ -139,7 +154,13 @@ static void start_client(cs472_proto_header_t *header, uint8_t *packet){
      *      send() - recall that the formatted packet is passed in
      *      recv() - get the response back from the server
      */
+    r = recv(data_socket,recv_buffer,sizeof(recv_buffer),0);
+    if (r > 0){
 
+    }else{
+        perror('recv');
+        exit(EXIT_FAILURE);
+    }
     //Now process what the server sent, here is some helper code
     cs472_proto_header_t *pcktPointer =  (cs472_proto_header_t *)recv_buffer;
     uint8_t *msgPointer = NULL;

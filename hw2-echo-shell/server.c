@@ -9,8 +9,8 @@
 #include <unistd.h>
 #include <sys/un.h>
 
-#define EOF '\x07'
-#define BUFF_SZ 512
+#define SERVEOF '\x07'
+#define BUFF_SZ 2048
 static uint8_t send_buffer[BUFF_SZ];
 static uint8_t recv_buffer[BUFF_SZ];
 
@@ -75,11 +75,17 @@ static void process_requests(int listen_socket){
         }
 
         printf("\t RECEIVED REQ...\n");
+        uint8_t locbuf[512];
+        uint8_t pos = 0;
 
-        while(ret= (recv(data_socket,recv_buffer,BUFF_SZ,0)) > 0){
-            
-        }else{
-            perror("./server");
+        while((ret= (recv(data_socket,locbuf,BUFF_SZ,0))) > 0){
+            memcpy((recv_buffer + pos  ),locbuf,ret) ; 
+            if (locbuf[ret-1] == SERVEOF){
+                break;
+            }
+        }
+        if (ret < 0){
+            perror("recv");
             exit(EXIT_FAILURE);
         }
         /*
@@ -100,10 +106,11 @@ static void process_requests(int listen_socket){
         //TODO:  DELETE THESE VARIABLES BELOW...
         //SEE THE COMMENT ABOVE, THESE VARIABLES ARE JUST PUT IN HERE FOR NOW TO MAKE SURE
         //THE STUB COMPILES
-        cs472_proto_header_t *pcktPointer;
+        cs472_proto_header_t *pcktPointer = (cs472_proto_header_t *) recv_buffer;
         uint8_t *msgPointer = NULL;
         uint8_t msgLen = 0;
-
+        process_recv_packet(pcktPointer, recv_buffer,&msgPointer,&msgLen);
+        printf("Test: %d",pcktPointer->proto) ;
         //Now lets setup to process the request and send a reply, create a copy of the header
         //also switch header direction
         memcpy(&header, pcktPointer, sizeof(cs472_proto_header_t)); //start building rsp header
