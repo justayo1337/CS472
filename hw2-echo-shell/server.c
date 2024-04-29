@@ -68,13 +68,17 @@ static void process_requests(int listen_socket){
         memset(msg_in_buffer,0,sizeof(msg_in_buffer));
 
         //Establish a connection
-        data_socket = accept(listen_socket, NULL, NULL);
+        struct sockaddr_in client_data;
+        socklen_t soclen = sizeof(client_data);
+        data_socket = accept(listen_socket,(struct sockaddr *) &client_data, &soclen);
         if (data_socket == -1) {
             perror("accept");
             exit(EXIT_FAILURE);
         }
 
-        printf("\t RECEIVED REQ...\n");
+        char cIP[INET_ADDRSTRLEN];
+        inet_ntop(AF_INET,&client_data.sin_addr.s_addr,cIP, INET_ADDRSTRLEN);
+        printf("\t RECEIVED REQ... From: %s\n",cIP);
         uint8_t locbuf[512];
         memset(locbuf,0,sizeof(locbuf));
 
@@ -100,7 +104,7 @@ static void process_requests(int listen_socket){
         process_recv_packet(pcktPointer, recv_buffer,&msgPointer,&msgLen);
         //Now lets setup to process the request and send a reply, create a copy of the header
         //also switch header direction
-        print_proto_header(pcktPointer);
+        //print_proto_header(pcktPointer);
 
         memcpy(&header, pcktPointer, sizeof(cs472_proto_header_t)); //start building rsp header
         header.dir = DIR_RECV;
