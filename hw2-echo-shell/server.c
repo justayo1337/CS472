@@ -80,7 +80,7 @@ static void process_requests(int listen_socket){
 
         uint8_t pos = 0;
 
-        while ((ret= (recv(data_socket,locbuf,512,0))) >= 0){
+        while ((ret= (recv(data_socket,locbuf,sizeof(locbuf),0))) >= 0){
            if (ret==0 || locbuf[ret-1] == '\x07'){
                 memcpy((recv_buffer + pos ),locbuf,ret-1) ; 
                 break;

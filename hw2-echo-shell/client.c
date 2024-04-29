@@ -110,7 +110,6 @@ static void start_client(cs472_proto_header_t *header, uint8_t *packet){
     int data_socket;
     int ret;
     int r;
-    char localbuf[512];
     /* Create local socket. */
 
     data_socket = socket(AF_INET, SOCK_STREAM, 0);
@@ -135,8 +134,8 @@ static void start_client(cs472_proto_header_t *header, uint8_t *packet){
     addr.sin_addr.s_addr = inet_addr("127.0.0.1");
     addr.sin_port = htons(PORT_NUM);
 
-    printf("Test: %lu\n", ((cs472_proto_header_t *) packet)->len);
-    if (ret=(connect(data_socket,(const struct sockaddr *)&addr,sizeof(struct sockaddr_in))) == 0){
+    //printf("Test: %lu\n", ((cs472_proto_header_t *) packet)->len);
+    if ((ret=(connect(data_socket,(const struct sockaddr *)&addr,sizeof(struct sockaddr_in)))) == 0){
         r = send(data_socket,packet,((cs472_proto_header_t *) packet)->len ,0);
             if (r < 0){
             perror("send");
@@ -146,6 +145,8 @@ static void start_client(cs472_proto_header_t *header, uint8_t *packet){
         perror("connect");
         exit(EXIT_FAILURE);
     }
+
+    // send end of stream byte separately
     char EOF_CH = 7;
     r = send(data_socket,&EOF_CH,sizeof(char),0);
     if (r < 0){
