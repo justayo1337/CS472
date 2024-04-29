@@ -11,7 +11,7 @@
 #include <sys/un.h>
 
 #define BUFF_SZ 2048
-#define SERVEOF '\x07'
+//#define EOF_C '\x07'
 static uint8_t send_buffer[BUFF_SZ];
 static uint8_t recv_buffer[BUFF_SZ];
 
@@ -73,8 +73,8 @@ static void init_header(cs472_proto_header_t *header, int req_cmd, char *reqData
     header->proto = PROTO_CS_FUN;
     header->cmd = req_cmd;
     header->ver = PROTO_VER_1;
-    header->dir = 0;
-    header->atm = TERM_WINTER;
+    header->dir = DIR_SEND;
+    header->atm = TERM_SUMMER;
     header->ay = 2024;
     //TODO: Setup other header fields, eg., header->ver, header->dir, header->atm, header->ay
 
@@ -110,7 +110,7 @@ static void start_client(cs472_proto_header_t *header, uint8_t *packet){
     int data_socket;
     int ret;
     int r;
-
+    char localbuf[512];
     /* Create local socket. */
 
     data_socket = socket(AF_INET, SOCK_STREAM, 0);
@@ -135,33 +135,32 @@ static void start_client(cs472_proto_header_t *header, uint8_t *packet){
     addr.sin_addr.s_addr = inet_addr("127.0.0.1");
     addr.sin_port = htons(PORT_NUM);
 
+    printf("Test: %lu\n", ((cs472_proto_header_t *) packet)->len);
     if (ret=(connect(data_socket,(const struct sockaddr *)&addr,sizeof(struct sockaddr_in))) == 0){
-        r = send(data_socket,packet,sizeof(packet) ,0);
-        if (r < 0){
+        r = send(data_socket,packet,((cs472_proto_header_t *) packet)->len ,0);
+            if (r < 0){
             perror("send");
+            exit(EXIT_FAILURE);
         }
     }else{
         perror("connect");
         exit(EXIT_FAILURE);
     }
-    
-    /*
-     * TODO:  The next things you need to do is to handle the cleint
-     * socket to send things to the server, basically make the following
-     * calls:
-     * 
-     *      connect()
-     *      send() - recall that the formatted packet is passed in
-     *      recv() - get the response back from the server
-     */
+    char EOF_CH = 7;
+    r = send(data_socket,&EOF_CH,sizeof(char),0);
+    if (r < 0){
+        perror("send");
+        exit(EXIT_FAILURE);
+    }
+
     r = recv(data_socket,recv_buffer,sizeof(recv_buffer),0);
     if (r > 0){
 
     }else{
-        perror('recv');
+        perror("recv");
         exit(EXIT_FAILURE);
     }
-    //Now process what the server sent, here is some helper code
+//    Now process what the server sent, here is some helper code
     cs472_proto_header_t *pcktPointer =  (cs472_proto_header_t *)recv_buffer;
     uint8_t *msgPointer = NULL;
     uint8_t msgLen = 0;
