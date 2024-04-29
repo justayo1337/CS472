@@ -25,17 +25,17 @@ static uint8_t recv_buffer[BUFF_SZ];
  *  a course id, and the server looks up the course id and responds
  *  with an appropriate message. 
  */
-static int initParams(int argc, char *argv[], char **p){
+static int initParams(int argc, char *argv[], char **p,char *servip){
     int option;
 
     //setup defaults if no arguements are passed
     static char cmdBuffer[16] = "CS472"; 
     int         cmdType = CMD_CLASS_INFO;
-
+    char ip[INET_ADDRSTRLEN];
     //
     // usage client [-p "ping pong message"] | [-c COURSEID]
     //
-    while ((option = getopt(argc, argv, ":p:c:")) != -1){
+    while ((option = getopt(argc, argv, ":p:c:t:")) != -1){
         switch(option) {
             case 'p':
                 strncpy(cmdBuffer, optarg, sizeof(cmdBuffer));
@@ -44,6 +44,9 @@ static int initParams(int argc, char *argv[], char **p){
             case 'c':
                 strncpy(cmdBuffer, optarg, sizeof(cmdBuffer));
                 cmdType = CMD_CLASS_INFO;
+                break;
+            case 't':
+                strncpy(ip,optarg,INET_ADDRSTRLEN);
                 break;
             case ':':
                 perror ("Option missing value");
@@ -55,6 +58,7 @@ static int initParams(int argc, char *argv[], char **p){
         }
     }
     *p = cmdBuffer;
+    strcpy(servip,ip);
     return cmdType;
 }
 
@@ -105,7 +109,7 @@ static void init_header(cs472_proto_header_t *header, int req_cmd, char *reqData
  *  we are doing a ping to the server.  We add the extra 1 to send
  *  over the null terminator for the string
  */
-static void start_client(cs472_proto_header_t *header, uint8_t *packet){
+static void start_client(cs472_proto_header_t *header, uint8_t *packet,char *servip){
     struct sockaddr_in addr;
     int data_socket;
     int ret;
@@ -130,8 +134,14 @@ static void start_client(cs472_proto_header_t *header, uint8_t *packet){
     /* note that i am sending to localhost, you will need a server IP 
      * if you are sending over a real network - try it out
      */
+    printf("Reaching out to: %s on port: %d \n",servip,PORT_NUM);
     addr.sin_family = AF_INET;
-    addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    
+    if (strlen(servip) >= 8 ){
+        addr.sin_addr.s_addr = inet_addr(servip);
+    } else {
+        addr.sin_addr.s_addr = inet_addr("127.0.0.1");
+    }
     addr.sin_port = htons(PORT_NUM);
 
     //printf("Test: %lu\n", ((cs472_proto_header_t *) packet)->len);
@@ -181,10 +191,12 @@ int main(int argc, char *argv[])
     cs472_proto_header_t header;
     int  cmd = 0;
     char *cmdData = NULL;
+    char *servip = malloc(sizeof(char ) * INET_ADDRSTRLEN);
+    memset(servip,'\0',sizeof(char) * INET_ADDRSTRLEN);
 
     //Process the parameters and init the header - look at the helpers
     //in the cs472-pproto.c file
-    cmd = initParams(argc, argv, &cmdData);
+    cmd = initParams(argc, argv, &cmdData,servip);
     init_header(&header, cmd, cmdData);
 
     //Prepare the request packet based on the type of the command
@@ -202,5 +214,5 @@ int main(int argc, char *argv[])
     }
 
     //start the client
-    start_client(&header, send_buffer);
+    start_client(&header, send_buffer,servip);
 }
