@@ -1,3 +1,137 @@
+
+
+## My stuff
+
+### My examples
+
+```bash
+#client
+
+ayo in ~/CS472/hw2-echo-shell on main ● ● λ ./client -p "Hello there server, how are you?"
+Reaching out to:  on port: 1080 
+HEADER VALUES 
+  Proto Type:	 PROTO_CS_FUN
+  Proto Ver:	 VERSION_1
+  Command:	 CMD_PING_PONG
+  Direction:	 DIR_RECV
+  Term:		 TERM SUMMER 
+  Course:	 NONE
+  Pkt Len:	 29
+
+RECV FROM SERVER -> PONG: Hello there serv
+ayo in ~/CS472/hw2-echo-shell on main ● ● λ ./client  
+Reaching out to:  on port: 1080 
+HEADER VALUES 
+  Proto Type:	 PROTO_CS_FUN
+  Proto Ver:	 VERSION_1
+  Command:	 CMD_CLASS_INFO
+  Direction:	 DIR_RECV
+  Term:		 TERM SUMMER 
+  Course:	 CS472
+  Pkt Len:	 12
+
+RECV FROM SERVER -> CS472: Welcome to computer networks
+ayo in ~/CS472/hw2-echo-shell on main ● ● λ ./client -c cs577
+Reaching out to:  on port: 1080 
+HEADER VALUES 
+  Proto Type:	 PROTO_CS_FUN
+  Proto Ver:	 VERSION_1
+  Command:	 CMD_CLASS_INFO
+  Direction:	 DIR_RECV
+  Term:		 TERM SUMMER 
+  Course:	 cs577
+  Pkt Len:	 12
+
+RECV FROM SERVER -> CS577: Software architecture is important
+ayo in ~/CS472/hw2-echo-shell on main ● ● λ .//client -c bad
+Reaching out to:  on port: 1080 
+HEADER VALUES 
+  Proto Type:	 PROTO_CS_FUN
+  Proto Ver:	 VERSION_1
+  Command:	 CMD_CLASS_INFO
+  Direction:	 DIR_RECV
+  Term:		 TERM SUMMER 
+  Course:	 bad
+  Pkt Len:	 12
+
+RECV FROM SERVER -> Requested Course Not Found
+
+
+#server
+ayo in ~/CS472/hw2-echo-shell on main ● λ ./server 
+STARTING SERVER - CTRL+C to EXIT 
+	 RECEIVED REQ... From: 127.0.0.1
+	 RECEIVED REQ... From: 127.0.0.1
+	 RECEIVED REQ... From: 127.0.0.1
+	 RECEIVED REQ... From: 127.0.0.1
+```
+
+#### Examples from remote connection
+
+```bash
+#client 
+
+ayo in ~/CS472/hw2-echo-shell on main ● ● λ ./client -p "Hello there server, how are you?" -t 100.69.29.62
+Reaching out to: 100.69.29.62 on port: 1080 
+HEADER VALUES 
+  Proto Type:	 PROTO_CS_FUN
+  Proto Ver:	 VERSION_1
+  Command:	 CMD_PING_PONG
+  Direction:	 DIR_RECV
+  Term:		 TERM SUMMER 
+  Course:	 NONE
+  Pkt Len:	 29
+
+RECV FROM SERVER -> PONG: Hello there serv
+ayo in ~/CS472/hw2-echo-shell on main ● ● λ ./client -t 100.69.29.62
+Reaching out to: 100.69.29.62 on port: 1080 
+HEADER VALUES 
+  Proto Type:	 PROTO_CS_FUN
+  Proto Ver:	 VERSION_1
+  Command:	 CMD_CLASS_INFO
+  Direction:	 DIR_RECV
+  Term:		 TERM SUMMER 
+  Course:	 CS472
+  Pkt Len:	 12
+
+RECV FROM SERVER -> CS472: Welcome to computer networks
+ayo in ~/CS472/hw2-echo-shell on main ● ● λ ./client -c cs577 -t 100.69.29.62
+Reaching out to: 100.69.29.62 on port: 1080 
+HEADER VALUES 
+  Proto Type:	 PROTO_CS_FUN
+  Proto Ver:	 VERSION_1
+  Command:	 CMD_CLASS_INFO
+  Direction:	 DIR_RECV
+  Term:		 TERM SUMMER 
+  Course:	 cs577
+  Pkt Len:	 12
+
+RECV FROM SERVER -> CS577: Software architecture is important
+ayo in ~/CS472/hw2-echo-shell on main ● ● λ ./client -c bad -t 100.69.29.62 
+Reaching out to: 100.69.29.62 on port: 1080 
+HEADER VALUES 
+  Proto Type:	 PROTO_CS_FUN
+  Proto Ver:	 VERSION_1
+  Command:	 CMD_CLASS_INFO
+  Direction:	 DIR_RECV
+  Term:		 TERM SUMMER 
+  Course:	 bad
+  Pkt Len:	 12
+
+RECV FROM SERVER -> Requested Course Not Found
+ayo in ~/CS472/hw2-echo-shell on main ● ● λ
+
+#server 
+ ayo@raspberrypi  ~/classes/cs472/hw2-echo-shell   main  ./server
+STARTING SERVER - CTRL+C to EXIT 
+	 RECEIVED REQ... From: 100.85.255.22
+	 RECEIVED REQ... From: 100.85.255.22
+	 RECEIVED REQ... From: 100.85.255.22
+	 RECEIVED REQ... From: 100.85.255.22
+```
+
+--- 
+
 ## Homework 2 - 
 ## Build a CS Class Lookup Client and Server
 
@@ -89,3 +223,8 @@ After watching this video, please do a short writeup addressing the following pr
 
 1. If you had the opportunity to ask Vint one thing what would that be?
 2. What is one thing of interest you took away from this video?
+
+
+
+---
+
