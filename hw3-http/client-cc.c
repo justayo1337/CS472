@@ -33,10 +33,19 @@ void print_usage(char *exe_name){
 int process_request(const char *host, uint16_t port, char *resource){
     int sock;
     int total_bytes;
-
+    char  buf[BUFF_SZ] ;
+    char send_buf[BUFF_SZ];
+    char  recv_data[BUFF_SZ*4];
     sock = socket_connect(host, port);
+    int ret;
     if(sock < 0) return sock;
 
+    //generate request 
+    strncpy(send_buf,generate_cc_request(host,port,resource),BUFF_SZ);
+    if ((ret=send(sock,send_buf,BUFF_SZ,0)) < 0) {
+        perror("send");
+        exit(EXIT_FAILURE);
+    }
     //---------------------------------------------------------------------------------
     //TODO:   Implement Send/Receive loop for Connection:Closed
     //
@@ -56,6 +65,13 @@ int process_request(const char *host, uint16_t port, char *resource){
     //    from the server, so why you are looping around, make sure to
     //    accumulate all of the data received and return this value. 
     //---------------------------------------------------------------------------------
+
+    //recv the data
+    while(ret=(recv(sock,buf,BUFF_SZ,0)) > 0){
+        total_bytes += ret;
+        printf("%s\n", buf); 
+    }
+
 
     close(sock);
     return total_bytes;

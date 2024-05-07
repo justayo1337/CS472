@@ -6,6 +6,10 @@ client-cc: client-cc.c http.c
 client-ka: client-ka.c http.c
 	gcc -g client-ka.c http.c -o client-ka
 
+clean:
+	rm -f client-ka
+	rm -f client-cc
+
 .PHONY: run-cc
 run-cc:
 	./client-cc httpbin.org 80 /
