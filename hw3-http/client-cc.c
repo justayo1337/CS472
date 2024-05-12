@@ -32,7 +32,7 @@ void print_usage(char *exe_name){
 
 int process_request(const char *host, uint16_t port, char *resource){
     int sock;
-    int total_bytes;
+    int total_bytes = 0;
     char  buf[BUFF_SZ] ;
     char send_buf[BUFF_SZ];
     char  recv_data[BUFF_SZ*4];
@@ -42,10 +42,11 @@ int process_request(const char *host, uint16_t port, char *resource){
 
     //generate request 
     strncpy(send_buf,generate_cc_request(host,port,resource),BUFF_SZ);
-    if ((ret=send(sock,send_buf,BUFF_SZ,0)) < 0) {
+    if ((ret=send(sock,send_buf,strlen(send_buf),0)) < 0) {
         perror("send");
         exit(EXIT_FAILURE);
     }
+//    printf("%d:%d bytes sent\n",ret,strlen(send_buf));
     //---------------------------------------------------------------------------------
     //TODO:   Implement Send/Receive loop for Connection:Closed
     //
@@ -67,12 +68,17 @@ int process_request(const char *host, uint16_t port, char *resource){
     //---------------------------------------------------------------------------------
 
     //recv the data
+
     while(ret=(recv(sock,buf,BUFF_SZ,0)) > 0){
+        printf("ret: %d\n",ret);
         total_bytes += ret;
-        printf("%s\n", buf); 
+        printf("%*s",ret,buf); 
+        //printf("%s\n",buf); 
+
+        memset(buf,0,BUFF_SZ) ;
     }
-
-
+    
+    printf("\nTotal Bytes: %d\n",total_bytes);
     close(sock);
     return total_bytes;
 }
