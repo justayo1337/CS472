@@ -153,18 +153,22 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     // what the following 2 lines of code do to track the amount of data received
     // from the server
     //
-    // YOUR ANSWER:  <START-YOUR-RESPONSE-HERE>
+    // YOUR ANSWER: The two lines below are aimed at getting started with tracking how much of the content is left to be received from the server
+    // the first variable initial_data calculates the number of bytes from the first recv(...)  that does not include the HTTP header in order to properly calculate 
+    // the total number of bytes received. Utilizing the results from the "initial_data" variable, we can use that along with the value of "Content-Length" in the header "content_len"
+    // to calculate how many bytes are left to completely receive the HTTP Response and how many times to call the recv(...) command to finish in the interaction.
     //
     //--------------------------------------------------------------------------------
     int initial_data =  bytes_recvd - header_len;
-    total_bytes = initial_data;
     int bytes_remaining = content_len - initial_data;
 
+
+    total_bytes = initial_data;
 
     //This loop keeps going until bytes_remaining is essentially zero, to be more
     //defensive an prevent an infinite loop, i have it set to keep looping as long
     //as bytes_remaining is positive
-    printf("Initial: %d Bytes Recvd: %d; Header Len: %d \n",initial_data,bytes_recvd,header_len);
+    //printf("Initial: %d Bytes Recvd: %d; Header Len: %d \n",initial_data,bytes_recvd,header_len);
 
     //printf("Initial: %d Bytes Remaining: %d; Total Bytes: %d \n",initial_data,bytes_remaining,total_bytes);
     while(bytes_remaining > 0){
@@ -203,7 +207,11 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     // You dont have any code to change, but explain why this function, if it gets to this
     // point returns an active socket.
     //
-    // YOUR ANSWER:  <START-YOUR-RESPONSE-HERE>
+    // YOUR ANSWER:  This function returns the active socket in order to utilize the same connection for situations where
+    // there are several resources requested by the user such as in:
+    // ./client-ka httpbin.org 80 / /json /post /robots.txt
+    // Without returning an active socket to be used for requesting the other resources noted in the the cmdline, setting the connection
+    // To "Keep-Alive" is not as useful.
     //
     //--------------------------------------------------------------------------------
     return sock;

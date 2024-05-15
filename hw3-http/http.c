@@ -75,18 +75,20 @@ char *strnstr(const char *s, const char *find, size_t slen)
 	return ((char *)s);
 }
 
-
+// TODO: Document this
 int socket_connect(const char *host, uint16_t port){
+    // creating the required variables and structs to create the required socket connection to the server
     struct hostent *hp;
     struct sockaddr_in addr;
     int sock;
 
+    // Translating the hostname, if it is a hostname/domain name rather than an IP address.
     if((hp = gethostbyname(host)) == NULL){
 		herror("gethostbyname");
 		return -2;
 	}
     
-    
+    /* Here we copy the IP addre*/
 	bcopy(hp->h_addr_list[0], &addr.sin_addr, hp->h_length);
 	addr.sin_port = htons(port);
 	addr.sin_family = AF_INET;
@@ -106,7 +108,7 @@ int socket_connect(const char *host, uint16_t port){
     return sock;
 }
 
-
+// TODO: Document this
 int get_http_header_len(char *http_buff, int http_buff_len){
     char *end_ptr;
     int header_len = 0;
@@ -122,7 +124,7 @@ int get_http_header_len(char *http_buff, int http_buff_len){
     return header_len;
 }
 
-
+// TODO: Document this
 int get_http_content_len(char *http_buff, int http_header_len){
     char header_line[MAX_HEADER_LINE];
 
