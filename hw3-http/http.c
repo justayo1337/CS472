@@ -11,6 +11,7 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <netdb.h>
+#include <ctype.h>
 
 #include "http.h"
 
@@ -132,7 +133,7 @@ int get_http_content_len(char *http_buff, int http_header_len){
         bzero(header_line,sizeof(header_line));
         sscanf(next_header_line,"%[^\r\n]s", header_line);
 
-        char *isCLHeader2 = strcasecmp(header_line,CL_HEADER);
+        //char *isCLHeader2 = (char *) strcasecmp(header_line,CL_HEADER);
         char *isCLHeader = strcasestr(header_line,CL_HEADER);
         if(isCLHeader != NULL){
             char *header_value_start = strchr(header_line, HTTP_HEADER_DELIM);

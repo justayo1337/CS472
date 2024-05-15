@@ -107,9 +107,12 @@ int main(int argc, char *argv[]){
         }
     }
     time_t stop = time(NULL);
-   // lstart = localtime_r
-    strftime(sta,sizeof(sta),"%H:%M:%S %Z",localtime(&start));
-    strftime(sto,sizeof(sto),"%H:%M:%S %Z",localtime(&stop));
+    struct tm lsta,lsto;
+    localtime_r(&start, &lsta);
+    sleep(1);
+    localtime_r(&stop,&lsto);
+    strftime(sta,sizeof(sta),"%H:%M:%S %Z",&lsta);
+    strftime(sto,sizeof(sto),"%H:%M:%S %Z",&lsto);
     double time_elapsed = difftime(stop,start);
     printf("\n\nStart: %s\nStop: %s \nTime Taken: %.f\n",sta,sto,time_elapsed );
 }
