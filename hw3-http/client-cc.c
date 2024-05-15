@@ -37,16 +37,22 @@ int process_request(const char *host, uint16_t port, char *resource){
     char send_buf[BUFF_SZ];
     char  recv_data[BUFF_SZ*4];
     sock = socket_connect(host, port);
-    int ret;
+    int ret = 0;
     if(sock < 0) return sock;
 
     //generate request 
     strncpy(send_buf,generate_cc_request(host,port,resource),BUFF_SZ);
+    
+    //send request to server
     if ((ret=send(sock,send_buf,strlen(send_buf),0)) < 0) {
         perror("send");
         exit(EXIT_FAILURE);
     }
-//    printf("%d:%d bytes sent\n",ret,strlen(send_buf));
+
+    //confirm that the length of the generated request is equal to the one that was sent.
+    if (ret != strlen(send_buf)){
+        printf("%d bytes Generated :%d bytes sent\n",ret,strlen(send_buf));
+    }
     //---------------------------------------------------------------------------------
     //TODO:   Implement Send/Receive loop for Connection:Closed
     //
@@ -67,13 +73,11 @@ int process_request(const char *host, uint16_t port, char *resource){
     //    accumulate all of the data received and return this value. 
     //---------------------------------------------------------------------------------
 
-    //recv the data
 
-    while(ret=(recv(sock,buf,BUFF_SZ,0)) > 0){
-        printf("ret: %d\n",ret);
+    //recv the data
+    while((ret=recv(sock,buf,BUFF_SZ,0)) > 0){
         total_bytes += ret;
-        printf("%*s",ret,buf); 
-        //printf("%s\n",buf); 
+        printf("%.*s", ret, buf);
 
         memset(buf,0,BUFF_SZ) ;
     }
