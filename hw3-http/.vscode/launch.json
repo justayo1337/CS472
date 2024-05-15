@@ -34,7 +34,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/client-ka",
-            "args": [],
+            "args": ["httpbin.org", "80" ,"/" ,"/json" ,"/html"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

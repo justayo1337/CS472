@@ -5,9 +5,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <time.h>
 
 #define  BUFF_SZ            1024
-#define  MAX_REOPEN_TRIES   5
+#define  MAX_REOPEN_TRIES   15
 
 char recv_buff[BUFF_SZ];
 
@@ -34,35 +35,16 @@ void print_usage(char *exe_name){
 int reopen_socket(const char *host, uint16_t port) {
     int sock = 0;
 
+   //TODO: Implement a loop that attempts a certain number of times to open a 
+    //      socket with the host and port that is passed in as parameters.
+    //          1. Create a loop that loops MAX_REOPEN_TRIES
     for (int i=0; i< MAX_REOPEN_TRIES;i++){
+        //trying to connect to the server
         sock = socket_connect(host,port);
-        if (! sock){
+        if (sock > 0 ){
             return (sock);
         }
     }
-    //----------------------------------------------------------------------------
-    //TODO: Implement a loop that attempts a certain number of times to open a 
-    //      socket with the host and port that is passed in as parameters.
-    //
-    //      I created a constant called MAX_REOPEN_TRIES (currently set to 5)
-    //      that bounds the number of times we will attempt to reopen a socket
-    //      with the remote web server.
-    //
-    //      What you need to do:
-    //          1. Create a loop that loops MAX_REOPEN_TRIES
-    //          2. In the body of the loop attempt to connect to the server.  
-    //             use the sock = socket_connect(host,port)  function to 
-    //             do this.
-    //          3. The socket_connect function will return a negative number if
-    //             the socket_connect() function fails.  Continue looping if this
-    //             happens up to MAX_REOPEN_TRIES
-    //          4. If socket_connect() returns a positive number it is a valid
-    //             socket so just return it, e.g., return sock
-    //          5. If we fall out of the loop, we are unable to connect, return
-    //             -1 to indicate a failure. 
-    //----------------------------------------------------------------------------
-
-    
     return -1;
 }
 
@@ -93,7 +75,6 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
         //----------------------------------------------------------------------------
         //TODO:  Reimplement the retry logic to reopen the socket
         //
-        // The variable sock needs to be reset to a new socket with the server.
         // 1.  Use the sock = reopen_socket() helper you implemented above in an attempt
         //     to reopen_the socket.  If it returns a value less than zero, a socket 
         //     could not be created so return the negative value and exit the function,
@@ -101,9 +82,10 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
         //
         //  2. Assuming you got a valid socket, reissue the send again
         //     sent_bytes = send(sock, req, send_sz,0);
-        //----------------------------------------------------------------------------
+        
+        //reopen socket
         int sock = reopen_socket(host,port);
-        if (! sock){
+        if (sock > 0){
             sent_bytes = send(sock,req,send_sz,0);
         }else{
             return -1;
@@ -127,7 +109,7 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     
     //do the first recv
     bytes_recvd = recv(sock, recv_buff, sizeof(recv_buff),0);
-    if(bytes_recvd < 0) {
+    if(bytes_recvd <= 0) {
         perror("initial receive failed");
         close(sock);
         return -1;
@@ -146,11 +128,12 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     //          b. return -1 to exit this function
     //--------------------------------------------------------------------------------
     int header_len = get_http_header_len(recv_buff,sizeof(recv_buff));     //change this to get the header len as per the directions above
-    if (! header_len) {
+    if (header_len < 0) {
         close(sock);
         return -1;
     }
 
+    print_header(recv_buff,header_len);
     //--------------------------------------------------------------------------------
     //TODO:  Get the conetent len
     //
@@ -160,7 +143,7 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     // cannot find a Content-Length header, its assumed as per the HTTP spec that ther
     // is no body, AKA, content_len is zero;
     //--------------------------------------------------------------------------------
-    int content_len = get_http_content_len(recv_buff,sizeof(recv_buff));    //Change this to get the content length
+    int content_len = get_http_content_len(recv_buff,header_len);    //Change this to get the content length
 
     //--------------------------------------------------------------------------------
     // TODO:  Make sure you understand the calculations below
@@ -189,8 +172,8 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
         //      a. close the socket (sock)
         //      b. return -1 to indicate an error
         //-----------------------------------------------------------------------------
-        bytes_recvd = recv(sock,recv_buff,BUFF_SZ,0); // replace with a valid recv(...); call
-        if (! bytes_recvd) {
+        bytes_recvd = recv(sock,recv_buff,BUFF_SZ,0); 
+        if ( bytes_recvd < 0) {
             close(sock);
             return -1;
         }
@@ -221,6 +204,8 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
 }
 
 int main(int argc, char *argv[]){
+    time_t start = time(NULL);
+    char sta[100],sto[100];
     int sock;
 
     const char *host = DEFAULT_HOST;
@@ -254,4 +239,9 @@ int main(int argc, char *argv[]){
     }
 
     server_disconnect(sock);
+    time_t stop = time(NULL);
+    strftime(sta,sizeof(sta),"%H:%M:%S %Z",localtime(&start));
+    strftime(sto,sizeof(sto),"%H:%M:%S %Z",localtime(&stop));
+    double time_elapsed = difftime(stop,start);
+    printf("\n\nStart: %s\nStop: %s \nTime Taken: %.f\n",sta,sto,time_elapsed );
 }

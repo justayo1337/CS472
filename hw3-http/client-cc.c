@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <time.h>
 
 #define  BUFF_SZ 1024
 
@@ -33,13 +34,16 @@ void print_usage(char *exe_name){
 int process_request(const char *host, uint16_t port, char *resource){
     int sock;
     int total_bytes = 0;
-    char  buf[BUFF_SZ] ;
+    char  recv_buff[BUFF_SZ] ;
     char send_buf[BUFF_SZ];
     char  recv_data[BUFF_SZ*4];
     sock = socket_connect(host, port);
     int ret = 0;
     if(sock < 0) return sock;
 
+
+
+    //TODO:   Implement Send/Receive loop for Connection:Closed
     //generate request 
     strncpy(send_buf,generate_cc_request(host,port,resource),BUFF_SZ);
     
@@ -53,33 +57,16 @@ int process_request(const char *host, uint16_t port, char *resource){
     if (ret != strlen(send_buf)){
         printf("%d bytes Generated :%d bytes sent\n",ret,strlen(send_buf));
     }
-    //---------------------------------------------------------------------------------
-    //TODO:   Implement Send/Receive loop for Connection:Closed
-    //
-    // 1. Generate the request - see the helper generate_cc_request
-    // 2. Send the request to the HTTP server, make sure the send size
-    //    matches the length of the generated request from generate_cc_request().
-    // 3. Loop and receive the response data from the server.  You must
-    //    loop, and you must save the data received inside of recv_buff.
-    // 4. Each interation through the loop print out the data you receive.
-    //    Note, the data will not be null terminated so be careful that
-    //    you use the size of the data returned to control how the data 
-    //    is printed.  Here is a format string that can help you out.
-    //  
-    //        printf("%.*s", bytes_recvd, recv_buff);
-    //
-    // 5. This function should return the total number of bytes received
-    //    from the server, so why you are looping around, make sure to
-    //    accumulate all of the data received and return this value. 
-    //---------------------------------------------------------------------------------
 
 
     //recv the data
-    while((ret=recv(sock,buf,BUFF_SZ,0)) > 0){
+    while((ret=recv(sock,recv_buff,BUFF_SZ,0)) > 0){
+        printf("%.*s", ret, recv_buff);
+        if (strlen(recv_data)+ret < (BUFF_SZ*4)){ 
+            strncpy(recv_data+total_bytes,recv_buff,ret);
+        }
         total_bytes += ret;
-        printf("%.*s", ret, buf);
-
-        memset(buf,0,BUFF_SZ) ;
+        memset(recv_buff,0,BUFF_SZ) ;
     }
     
     printf("\nTotal Bytes: %d\n",total_bytes);
@@ -88,6 +75,8 @@ int process_request(const char *host, uint16_t port, char *resource){
 }
 
 int main(int argc, char *argv[]){
+    time_t start = time(NULL);
+    char sta[100],sto[100];
     int sock;
 
     const char *host = DEFAULT_HOST;
@@ -117,4 +106,10 @@ int main(int argc, char *argv[]){
             process_request(host, port, resource);
         }
     }
+    time_t stop = time(NULL);
+   // lstart = localtime_r
+    strftime(sta,sizeof(sta),"%H:%M:%S %Z",localtime(&start));
+    strftime(sto,sizeof(sto),"%H:%M:%S %Z",localtime(&stop));
+    double time_elapsed = difftime(stop,start);
+    printf("\n\nStart: %s\nStop: %s \nTime Taken: %.f\n",sta,sto,time_elapsed );
 }
