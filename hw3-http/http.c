@@ -75,7 +75,11 @@ char *strnstr(const char *s, const char *find, size_t slen)
 	return ((char *)s);
 }
 
-// TODO: Document this
+/* 
+    This function takes in the destination host address/ domain name(and resolves the domain name) and the destination port
+    converts the port into network byte-order and creates a socket to handle the connection. A connection to the remote host is created utilizing the socket created and the active socket is returned
+    to be utilized to send the HTTP Requests.
+*/
 int socket_connect(const char *host, uint16_t port){
     // creating the required variables and structs to create the required socket connection to the server
     struct hostent *hp;
@@ -88,27 +92,45 @@ int socket_connect(const char *host, uint16_t port){
 		return -2;
 	}
     
-    /* Here we copy the IP addre*/
+    /* - Here we copy the IP address into the list of 
+    - The port which is a two byte integer (uint16_t) is also converted to network byte order (aka big-endian) in order for proper interpretation at the destination host
+    - The IP address family is set to be IPv4
+    - The socket is created in the "sock" variable utilizing "PF_INET", which stands for Protocol Family but contains the same value as AF_INET as seen here : 
+    https://github.com/torvalds/linux/blob/master/include/linux/socket.h#L249 
+    t notes that we will be using IPv4 Ip addresses to communicate over the socket(aka communication domain)
+    - SOCK_STREAM here signifies that we will be using the reliable TCP protocol for communication
+    */
 	bcopy(hp->h_addr_list[0], &addr.sin_addr, hp->h_length);
 	addr.sin_port = htons(port);
 	addr.sin_family = AF_INET;
 	sock = socket(PF_INET, SOCK_STREAM, 0); 
-	
+
+    // if the socket cannot be created/or failed to be created. return
 	if(sock == -1){
 		perror("socket");
 		return -1;
 	}
 
+    /* Create connection over the socket to the destination host, given 
+    the local socket created, the struct containing the IPv4 address and tcp port to transmit traffic to
+    */
     if(connect(sock, (struct sockaddr *)&addr, sizeof(struct sockaddr_in)) == -1){
 		perror("connect");
 		close(sock);
         return -1;
 	}
 
+    // return the active socket to be used to make HTTP requests.                                                                                                                                                                                                                                                                   
     return sock;
 }
 
-// TODO: Document this
+// TODO: 
+/*
+This function takes in a buffer containing and HTTP Response and the size of the buffer.
+The strnstr helper function is used to find the location of the "\r\n\r\n"  which signifies the end of the HTTP header and the position is stored in "end_ptr"
+If the location is found 
+
+*/
 int get_http_header_len(char *http_buff, int http_buff_len){
     char *end_ptr;
     int header_len = 0;
