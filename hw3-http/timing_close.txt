@@ -1,689 +1,700 @@
 1
 
-Start: 14:33:17.990 
-Stop: 14:33:18.407 
+Start: 14:40:30.554 
+Stop: 14:40:31.893 
 Time Taken: 1
 ----------------------------------------------------------------
 
 2
 
-Start: 14:33:18.411 
-Stop: 14:33:18.479 
-Time Taken: 0
+Start: 14:40:31.899 
+Stop: 14:40:32.494 
+Time Taken: 1
 ----------------------------------------------------------------
 
 3
 
-
-                            }
-                            json.host = window.location.host;  // sets t----------------------------------------------------------------
+Start: 14:40:32.499 
+Stop: 14:40:32.915 
+Time Taken: 0
+----------------------------------------------------------------
 
 4
 
-Start: 14:33:18.516 
-Stop: 14:33:18.579 
+Start: 14:40:32.920 
+Stop: 14:40:32.990 
 Time Taken: 0
 ----------------------------------------------------------------
 
 5
 
-Start: 14:33:18.585 
-Stop: 14:33:19.601 
+Start: 14:40:32.995 
+Stop: 14:40:33.56 
 Time Taken: 1
 ----------------------------------------------------------------
 
 6
 
-Start: 14:33:19.605 
-Stop: 14:33:19.627 
+Start: 14:40:33.61 
+Stop: 14:40:33.451 
 Time Taken: 0
 ----------------------------------------------------------------
 
 7
 
-Start: 14:33:19.630 
-Stop: 14:33:19.698 
+Start: 14:40:33.456 
+Stop: 14:40:33.579 
 Time Taken: 0
 ----------------------------------------------------------------
 
 8
 
-Start: 14:33:19.702 
-Stop: 14:33:19.882 
+Start: 14:40:33.583 
+Stop: 14:40:33.770 
 Time Taken: 0
 ----------------------------------------------------------------
 
 9
 
-Start: 14:33:19.887 
-Stop: 14:33:20.374 
+Start: 14:40:33.775 
+Stop: 14:40:34.156 
 Time Taken: 1
 ----------------------------------------------------------------
 
 10
 
-Start: 14:33:20.378 
-Stop: 14:33:20.448 
-Time Taken: 0
+Start: 14:40:34.160 
+Stop: 14:40:35.55 
+Time Taken: 1
 ----------------------------------------------------------------
 
 11
 
-Start: 14:33:20.452 
-Stop: 14:33:20.753 
+Start: 14:40:35.59 
+Stop: 14:40:35.122 
 Time Taken: 0
 ----------------------------------------------------------------
 
 12
 
-Start: 14:33:20.759 
-Stop: 14:33:20.826 
+Start: 14:40:35.126 
+Stop: 14:40:35.191 
 Time Taken: 0
 ----------------------------------------------------------------
 
 13
 
-Start: 14:33:20.831 
-Stop: 14:33:20.903 
+Start: 14:40:35.195 
+Stop: 14:40:35.498 
 Time Taken: 0
 ----------------------------------------------------------------
 
 14
 
-Start: 14:33:20.908 
-Stop: 14:33:20.971 
+Start: 14:40:35.503 
+Stop: 14:40:35.563 
 Time Taken: 0
 ----------------------------------------------------------------
 
 15
 
-Start: 14:33:20.977 
-Stop: 14:33:21.46 
+Start: 14:40:35.568 
+Stop: 14:40:36.382 
 Time Taken: 1
 ----------------------------------------------------------------
 
 16
 
-Start: 14:33:21.50 
-Stop: 14:33:21.440 
+Start: 14:40:36.387 
+Stop: 14:40:36.459 
 Time Taken: 0
 ----------------------------------------------------------------
 
 17
 
-Start: 14:33:21.445 
-Stop: 14:33:21.715 
+Start: 14:40:36.463 
+Stop: 14:40:36.573 
 Time Taken: 0
 ----------------------------------------------------------------
 
 18
 
-Start: 14:33:21.720 
-Stop: 14:33:21.786 
+Start: 14:40:36.578 
+Stop: 14:40:36.647 
 Time Taken: 0
 ----------------------------------------------------------------
 
 19
 
-Start: 14:33:21.790 
-Stop: 14:33:21.857 
-Time Taken: 0
+Start: 14:40:36.652 
+Stop: 14:40:37.336 
+Time Taken: 1
 ----------------------------------------------------------------
 
 20
 
-Start: 14:33:21.862 
-Stop: 14:33:21.926 
+Start: 14:40:37.340 
+Stop: 14:40:37.401 
 Time Taken: 0
 ----------------------------------------------------------------
 
 21
 
-Start: 14:33:21.932 
-Stop: 14:33:21.996 
+Start: 14:40:37.406 
+Stop: 14:40:37.468 
 Time Taken: 0
 ----------------------------------------------------------------
 
 22
 
-Start: 14:33:22.1 
-Stop: 14:33:22.71 
+Start: 14:40:37.473 
+Stop: 14:40:37.546 
 Time Taken: 0
 ----------------------------------------------------------------
 
 23
 
-Start: 14:33:22.76 
-Stop: 14:33:22.275 
+Start: 14:40:37.551 
+Stop: 14:40:37.963 
 Time Taken: 0
 ----------------------------------------------------------------
 
 24
 
-Start: 14:33:22.280 
-Stop: 14:33:22.459 
-Time Taken: 0
+Start: 14:40:37.968 
+Stop: 14:40:38.29 
+Time Taken: 1
 ----------------------------------------------------------------
 
 25
 
-Start: 14:33:22.464 
-Stop: 14:33:22.526 
+Start: 14:40:38.33 
+Stop: 14:40:38.381 
 Time Taken: 0
 ----------------------------------------------------------------
 
 26
 
-Start: 14:33:22.531 
-Stop: 14:33:22.595 
+Start: 14:40:38.386 
+Stop: 14:40:38.951 
 Time Taken: 0
 ----------------------------------------------------------------
 
 27
 
-      <div>
-        <p>
-          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+Start: 14:40:38.955 
+Stop: 14:40:39.20 
+Time Taken: 1
+----------------------------------------------------------------
 
 28
 
-Start: 14:33:22.670 
-Stop: 14:33:22.784 
-Time Taken: 0
+Start: 14:40:39.23 
+Stop: 14:40:40.471 
+Time Taken: 1
 ----------------------------------------------------------------
 
 29
 
-Start: 14:33:22.789 
-Stop: 14:33:22.853 
+Start: 14:40:40.474 
+Stop: 14:40:40.581 
 Time Taken: 0
 ----------------------------------------------------------------
 
 30
 
-Start: 14:33:22.858 
-Stop: 14:33:22.922 
+Start: 14:40:40.586 
+Stop: 14:40:40.841 
 Time Taken: 0
 ----------------------------------------------------------------
 
 31
 
-      <div>
-        <p>
-          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+Start: 14:40:40.846 
+Stop: 14:40:41.63 
+Time Taken: 1
+----------------------------------------------------------------
 
 32
 
-Start: 14:33:22.999 
-Stop: 14:33:23.409 
+Start: 14:40:41.67 
+Stop: 14:40:42.737 
 Time Taken: 1
 ----------------------------------------------------------------
 
 33
 
-Start: 14:33:23.414 
-Stop: 14:33:23.765 
-Time Taken: 0
+Start: 14:40:42.742 
+Stop: 14:40:43.145 
+Time Taken: 1
 ----------------------------------------------------------------
 
 34
 
-Start: 14:33:23.771 
-Stop: 14:33:23.901 
+Start: 14:40:43.149 
+Stop: 14:40:43.450 
 Time Taken: 0
 ----------------------------------------------------------------
 
 35
 
-Start: 14:33:23.906 
-Stop: 14:33:24.225 
-Time Taken: 1
+Start: 14:40:43.455 
+Stop: 14:40:43.527 
+Time Taken: 0
 ----------------------------------------------------------------
 
 36
 
-Start: 14:33:24.230 
-Stop: 14:33:24.308 
+Start: 14:40:43.531 
+Stop: 14:40:43.940 
 Time Taken: 0
 ----------------------------------------------------------------
 
 37
 
-Start: 14:33:24.313 
-Stop: 14:33:24.527 
-Time Taken: 0
+Start: 14:40:43.945 
+Stop: 14:40:44.65 
+Time Taken: 1
 ----------------------------------------------------------------
 
 38
 
-Start: 14:33:24.532 
-Stop: 14:33:25.42 
-Time Taken: 1
+Start: 14:40:44.69 
+Stop: 14:40:44.261 
+Time Taken: 0
 ----------------------------------------------------------------
 
 39
 
-Start: 14:33:25.47 
-Stop: 14:33:25.118 
-Time Taken: 0
+Start: 14:40:44.265 
+Stop: 14:40:45.82 
+Time Taken: 1
 ----------------------------------------------------------------
 
 40
 
-Start: 14:33:25.122 
-Stop: 14:33:25.186 
+Start: 14:40:45.87 
+Stop: 14:40:45.427 
 Time Taken: 0
 ----------------------------------------------------------------
 
 41
 
-Start: 14:33:25.190 
-Stop: 14:33:25.251 
+Start: 14:40:45.431 
+Stop: 14:40:45.490 
 Time Taken: 0
 ----------------------------------------------------------------
 
 42
 
-Start: 14:33:25.255 
-Stop: 14:33:25.615 
+Start: 14:40:45.495 
+Stop: 14:40:45.557 
 Time Taken: 0
 ----------------------------------------------------------------
 
 43
 
-Start: 14:33:25.620 
-Stop: 14:33:25.642 
-Time Taken: 0
+Start: 14:40:45.561 
+Stop: 14:40:46.458 
+Time Taken: 1
 ----------------------------------------------------------------
 
 44
 
-Start: 14:33:25.647 
-Stop: 14:33:26.130 
-Time Taken: 1
+Start: 14:40:46.462 
+Stop: 14:40:46.841 
+Time Taken: 0
 ----------------------------------------------------------------
 
 45
 
-Start: 14:33:26.135 
-Stop: 14:33:26.201 
+Start: 14:40:46.845 
+Stop: 14:40:46.998 
 Time Taken: 0
 ----------------------------------------------------------------
 
 46
 
-Start: 14:33:26.206 
-Stop: 14:33:26.286 
+Start: 14:40:47.1 
+Stop: 14:40:47.174 
 Time Taken: 0
 ----------------------------------------------------------------
 
 47
 
-Start: 14:33:26.291 
-Stop: 14:33:26.355 
+Start: 14:40:47.178 
+Stop: 14:40:47.237 
 Time Taken: 0
 ----------------------------------------------------------------
 
 48
 
-Start: 14:33:26.359 
-Stop: 14:33:26.433 
+Start: 14:40:47.241 
+Stop: 14:40:47.299 
 Time Taken: 0
 ----------------------------------------------------------------
 
 49
 
-Start: 14:33:26.438 
-Stop: 14:33:27.53 
-Time Taken: 1
+Start: 14:40:47.303 
+Stop: 14:40:47.363 
+Time Taken: 0
 ----------------------------------------------------------------
 
 50
 
-Start: 14:33:27.57 
-Stop: 14:33:27.319 
+Start: 14:40:47.367 
+Stop: 14:40:47.427 
 Time Taken: 0
 ----------------------------------------------------------------
 
 51
 
-Start: 14:33:27.324 
-Stop: 14:33:27.391 
+Start: 14:40:47.431 
+Stop: 14:40:47.496 
 Time Taken: 0
 ----------------------------------------------------------------
 
 52
 
-Start: 14:33:27.396 
-Stop: 14:33:28.322 
-Time Taken: 1
+Start: 14:40:47.500 
+Stop: 14:40:47.590 
+Time Taken: 0
 ----------------------------------------------------------------
 
 53
 
-Start: 14:33:28.326 
-Stop: 14:33:29.365 
-Time Taken: 1
+Start: 14:40:47.595 
+Stop: 14:40:47.976 
+Time Taken: 0
 ----------------------------------------------------------------
 
 54
 
-Start: 14:33:29.370 
-Stop: 14:33:29.635 
-Time Taken: 0
+Start: 14:40:47.981 
+Stop: 14:40:48.49 
+Time Taken: 1
 ----------------------------------------------------------------
 
 55
 
-Start: 14:33:29.640 
-Stop: 14:33:29.702 
+Start: 14:40:48.53 
+Stop: 14:40:48.324 
 Time Taken: 0
 ----------------------------------------------------------------
 
 56
 
-Start: 14:33:29.706 
-Stop: 14:33:30.456 
-Time Taken: 1
+Start: 14:40:48.328 
+Stop: 14:40:48.389 
+Time Taken: 0
 ----------------------------------------------------------------
 
 57
 
-Start: 14:33:30.460 
-Stop: 14:33:31.48 
-Time Taken: 1
+Start: 14:40:48.394 
+Stop: 14:40:48.835 
+Time Taken: 0
 ----------------------------------------------------------------
 
 58
 
-Start: 14:33:31.52 
-Stop: 14:33:31.458 
-Time Taken: 0
+Start: 14:40:48.840 
+Stop: 14:40:49.274 
+Time Taken: 1
 ----------------------------------------------------------------
 
 59
 
-      <div>
-        <p>
-          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+Start: 14:40:49.279 
+Stop: 14:40:49.352 
+Time Taken: 0
+----------------------------------------------------------------
 
 60
 
-Start: 14:33:32.652 
-Stop: 14:33:32.719 
+Start: 14:40:49.357 
+Stop: 14:40:49.422 
 Time Taken: 0
 ----------------------------------------------------------------
 
 61
 
-Start: 14:33:32.723 
-Stop: 14:33:32.793 
+Start: 14:40:49.426 
+Stop: 14:40:49.832 
 Time Taken: 0
 ----------------------------------------------------------------
 
 62
 
-Start: 14:33:32.797 
-Stop: 14:33:32.856 
-Time Taken: 0
+Start: 14:40:49.837 
+Stop: 14:40:51.16 
+Time Taken: 2
 ----------------------------------------------------------------
 
 63
 
-Start: 14:33:32.860 
-Stop: 14:33:33.458 
-Time Taken: 1
+Start: 14:40:51.20 
+Stop: 14:40:51.96 
+Time Taken: 0
 ----------------------------------------------------------------
 
 64
 
-Start: 14:33:33.461 
-Stop: 14:33:33.588 
+Start: 14:40:51.100 
+Stop: 14:40:51.321 
 Time Taken: 0
 ----------------------------------------------------------------
 
 65
 
-Start: 14:33:33.592 
-Stop: 14:33:33.765 
-Time Taken: 0
+Start: 14:40:51.325 
+Stop: 14:40:52.642 
+Time Taken: 1
 ----------------------------------------------------------------
 
 66
 
-Start: 14:33:33.769 
-Stop: 14:33:34.439 
+Start: 14:40:52.647 
+Stop: 14:40:53.80 
 Time Taken: 1
 ----------------------------------------------------------------
 
 67
 
-Start: 14:33:34.443 
-Stop: 14:33:34.506 
+Start: 14:40:53.84 
+Stop: 14:40:53.151 
 Time Taken: 0
 ----------------------------------------------------------------
 
 68
 
-Start: 14:33:34.509 
-Stop: 14:33:34.942 
+Start: 14:40:53.155 
+Stop: 14:40:53.948 
 Time Taken: 0
 ----------------------------------------------------------------
 
 69
 
-Start: 14:33:34.946 
-Stop: 14:33:35.8 
+Start: 14:40:53.954 
+Stop: 14:40:54.41 
 Time Taken: 1
 ----------------------------------------------------------------
 
 70
 
-Start: 14:33:35.11 
-Stop: 14:33:35.101 
+Start: 14:40:54.44 
+Stop: 14:40:54.147 
 Time Taken: 0
 ----------------------------------------------------------------
 
 71
 
-Start: 14:33:35.104 
-Stop: 14:33:35.222 
-Time Taken: 0
+Start: 14:40:54.151 
+Stop: 14:40:55.46 
+Time Taken: 1
 ----------------------------------------------------------------
 
 72
 
-Start: 14:33:35.227 
-Stop: 14:33:35.291 
+Start: 14:40:55.50 
+Stop: 14:40:55.788 
 Time Taken: 0
 ----------------------------------------------------------------
 
 73
 
-Start: 14:33:35.296 
-Stop: 14:33:36.13 
-Time Taken: 1
+Start: 14:40:55.792 
+Stop: 14:40:55.905 
+Time Taken: 0
 ----------------------------------------------------------------
 
 74
 
-      <div>
-        <p>
-          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+Start: 14:40:55.909 
+Stop: 14:40:56.636 
+Time Taken: 1
+----------------------------------------------------------------
 
 75
 
-      <div>
-        <p>
-          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+Start: 14:40:56.641 
+Stop: 14:40:56.708 
+Time Taken: 0
+----------------------------------------------------------------
 
 76
 
-Start: 14:33:36.229 
-Stop: 14:33:36.292 
+Start: 14:40:56.714 
+Stop: 14:40:56.871 
 Time Taken: 0
 ----------------------------------------------------------------
 
 77
 
-Start: 14:33:36.298 
-Stop: 14:33:36.998 
-Time Taken: 0
+Start: 14:40:56.877 
+Stop: 14:40:57.208 
+Time Taken: 1
 ----------------------------------------------------------------
 
 78
 
-Start: 14:33:37.2 
-Stop: 14:33:37.204 
+Start: 14:40:57.212 
+Stop: 14:40:57.277 
 Time Taken: 0
 ----------------------------------------------------------------
 
 79
 
-Start: 14:33:37.208 
-Stop: 14:33:37.505 
+Start: 14:40:57.281 
+Stop: 14:40:57.345 
 Time Taken: 0
 ----------------------------------------------------------------
 
 80
 
-Start: 14:33:37.508 
-Stop: 14:33:37.997 
+Start: 14:40:57.349 
+Stop: 14:40:57.548 
 Time Taken: 0
 ----------------------------------------------------------------
 
 81
 
-Start: 14:33:38.1 
-Stop: 14:33:40.137 
+Start: 14:40:57.552 
+Stop: 14:40:59.84 
 Time Taken: 2
 ----------------------------------------------------------------
 
 82
 
-Start: 14:33:40.141 
-Stop: 14:33:41.83 
-Time Taken: 1
+Start: 14:40:59.88 
+Stop: 14:40:59.981 
+Time Taken: 0
 ----------------------------------------------------------------
 
 83
 
-Start: 14:33:41.88 
-Stop: 14:33:41.752 
-Time Taken: 0
+Start: 14:40:59.986 
+Stop: 14:41:00.48 
+Time Taken: 1
 ----------------------------------------------------------------
 
 84
 
-      <div>
-        <p>
-          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+Start: 14:41:00.52 
+Stop: 14:41:00.261 
+Time Taken: 0
+----------------------------------------------------------------
 
 85
 
-Start: 14:33:42.271 
-Stop: 14:33:42.677 
+Start: 14:41:00.264 
+Stop: 14:41:00.585 
 Time Taken: 0
 ----------------------------------------------------------------
 
 86
 
-Start: 14:33:42.682 
-Stop: 14:35:56.308 
-Time Taken: 134
+Start: 14:41:00.589 
+Stop: 14:41:00.647 
+Time Taken: 0
 ----------------------------------------------------------------
 
 87
 
-Start: 14:35:56.313 
-Stop: 14:35:56.584 
+Start: 14:41:00.651 
+Stop: 14:41:00.845 
 Time Taken: 0
 ----------------------------------------------------------------
 
 88
 
-Start: 14:35:56.588 
-Stop: 14:35:58.840 
-Time Taken: 2
+Start: 14:41:00.849 
+Stop: 14:41:00.992 
+Time Taken: 0
 ----------------------------------------------------------------
 
 89
 
-Start: 14:35:58.846 
-Stop: 14:35:58.917 
-Time Taken: 0
+Start: 14:41:00.996 
+Stop: 14:41:01.135 
+Time Taken: 1
 ----------------------------------------------------------------
 
 90
 
-      <div>
-        <p>
-          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+Start: 14:41:01.138 
+Stop: 14:41:01.505 
+Time Taken: 0
+----------------------------------------------------------------
 
 91
 
-Start: 14:35:58.983 
-Stop: 14:35:59.23 
-Time Taken: 1
+Start: 14:41:01.508 
+Stop: 14:41:01.571 
+Time Taken: 0
 ----------------------------------------------------------------
 
 92
 
-Start: 14:35:59.28 
-Stop: 14:35:59.94 
+Start: 14:41:01.574 
+Stop: 14:41:01.637 
 Time Taken: 0
 ----------------------------------------------------------------
 
 93
 
-Start: 14:35:59.98 
-Stop: 14:36:00.73 
-Time Taken: 1
+Start: 14:41:01.640 
+Stop: 14:41:01.704 
+Time Taken: 0
 ----------------------------------------------------------------
 
 94
 
-Start: 14:36:00.77 
-Stop: 14:36:00.441 
+Start: 14:41:01.707 
+Stop: 14:41:01.770 
 Time Taken: 0
 ----------------------------------------------------------------
 
 95
 
-Start: 14:36:00.445 
-Stop: 14:36:00.722 
+Start: 14:41:01.773 
+Stop: 14:41:01.839 
 Time Taken: 0
 ----------------------------------------------------------------
 
 96
 
-Start: 14:36:00.727 
-Stop: 14:36:01.55 
-Time Taken: 1
+Start: 14:41:01.843 
+Stop: 14:41:01.908 
+Time Taken: 0
 ----------------------------------------------------------------
 
 97
 
-Start: 14:36:01.58 
-Stop: 14:36:01.635 
-Time Taken: 0
+Start: 14:41:01.912 
+Stop: 14:41:02.767 
+Time Taken: 1
 ----------------------------------------------------------------
 
 98
 
-
-                            }
-                            json.host = window.location.host;  // sets t----------------------------------------------------------------
+Start: 14:41:02.772 
+Stop: 14:41:02.838 
+Time Taken: 0
+----------------------------------------------------------------
 
 99
 
-      <div>
-        <p>
-          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+Start: 14:41:02.843 
+Stop: 14:41:03.371 
+Time Taken: 1
+----------------------------------------------------------------
 
 100
 
-      <div>
-        <p>
-          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+Start: 14:41:03.374 
+Stop: 14:41:03.437 
+Time Taken: 0
+----------------------------------------------------------------
 
