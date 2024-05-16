@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
+#include <sys/time.h>
 
 #define  BUFF_SZ 1024
 
@@ -74,9 +75,11 @@ int process_request(const char *host, uint16_t port, char *resource){
     return total_bytes;
 }
 
+
+
 int main(int argc, char *argv[]){
-    time_t start = time(NULL);
-    char sta[100],sto[100];
+    struct timeval start,stop;
+    gettimeofday(&start,NULL);
     int sock;
 
     const char *host = DEFAULT_HOST;
@@ -106,13 +109,8 @@ int main(int argc, char *argv[]){
             process_request(host, port, resource);
         }
     }
-    time_t stop = time(NULL);
-    struct tm lsta,lsto;
-    localtime_r(&start, &lsta);
-    sleep(1);
-    localtime_r(&stop,&lsto);
-    strftime(sta,sizeof(sta),"%H:%M:%S %Z",&lsta);
-    strftime(sto,sizeof(sto),"%H:%M:%S %Z",&lsto);
-    double time_elapsed = difftime(stop,start);
-    printf("\n\nStart: %s\nStop: %s \nTime Taken: %.f\n",sta,sto,time_elapsed );
+    gettimeofday(&stop,NULL);
+
+    show_time_elapsed(start,stop);
+
 }

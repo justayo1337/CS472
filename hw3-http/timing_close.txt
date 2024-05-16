@@ -1,0 +1,689 @@
+1
+
+Start: 14:33:17.990 
+Stop: 14:33:18.407 
+Time Taken: 1
+----------------------------------------------------------------
+
+2
+
+Start: 14:33:18.411 
+Stop: 14:33:18.479 
+Time Taken: 0
+----------------------------------------------------------------
+
+3
+
+
+                            }
+                            json.host = window.location.host;  // sets t----------------------------------------------------------------
+
+4
+
+Start: 14:33:18.516 
+Stop: 14:33:18.579 
+Time Taken: 0
+----------------------------------------------------------------
+
+5
+
+Start: 14:33:18.585 
+Stop: 14:33:19.601 
+Time Taken: 1
+----------------------------------------------------------------
+
+6
+
+Start: 14:33:19.605 
+Stop: 14:33:19.627 
+Time Taken: 0
+----------------------------------------------------------------
+
+7
+
+Start: 14:33:19.630 
+Stop: 14:33:19.698 
+Time Taken: 0
+----------------------------------------------------------------
+
+8
+
+Start: 14:33:19.702 
+Stop: 14:33:19.882 
+Time Taken: 0
+----------------------------------------------------------------
+
+9
+
+Start: 14:33:19.887 
+Stop: 14:33:20.374 
+Time Taken: 1
+----------------------------------------------------------------
+
+10
+
+Start: 14:33:20.378 
+Stop: 14:33:20.448 
+Time Taken: 0
+----------------------------------------------------------------
+
+11
+
+Start: 14:33:20.452 
+Stop: 14:33:20.753 
+Time Taken: 0
+----------------------------------------------------------------
+
+12
+
+Start: 14:33:20.759 
+Stop: 14:33:20.826 
+Time Taken: 0
+----------------------------------------------------------------
+
+13
+
+Start: 14:33:20.831 
+Stop: 14:33:20.903 
+Time Taken: 0
+----------------------------------------------------------------
+
+14
+
+Start: 14:33:20.908 
+Stop: 14:33:20.971 
+Time Taken: 0
+----------------------------------------------------------------
+
+15
+
+Start: 14:33:20.977 
+Stop: 14:33:21.46 
+Time Taken: 1
+----------------------------------------------------------------
+
+16
+
+Start: 14:33:21.50 
+Stop: 14:33:21.440 
+Time Taken: 0
+----------------------------------------------------------------
+
+17
+
+Start: 14:33:21.445 
+Stop: 14:33:21.715 
+Time Taken: 0
+----------------------------------------------------------------
+
+18
+
+Start: 14:33:21.720 
+Stop: 14:33:21.786 
+Time Taken: 0
+----------------------------------------------------------------
+
+19
+
+Start: 14:33:21.790 
+Stop: 14:33:21.857 
+Time Taken: 0
+----------------------------------------------------------------
+
+20
+
+Start: 14:33:21.862 
+Stop: 14:33:21.926 
+Time Taken: 0
+----------------------------------------------------------------
+
+21
+
+Start: 14:33:21.932 
+Stop: 14:33:21.996 
+Time Taken: 0
+----------------------------------------------------------------
+
+22
+
+Start: 14:33:22.1 
+Stop: 14:33:22.71 
+Time Taken: 0
+----------------------------------------------------------------
+
+23
+
+Start: 14:33:22.76 
+Stop: 14:33:22.275 
+Time Taken: 0
+----------------------------------------------------------------
+
+24
+
+Start: 14:33:22.280 
+Stop: 14:33:22.459 
+Time Taken: 0
+----------------------------------------------------------------
+
+25
+
+Start: 14:33:22.464 
+Stop: 14:33:22.526 
+Time Taken: 0
+----------------------------------------------------------------
+
+26
+
+Start: 14:33:22.531 
+Stop: 14:33:22.595 
+Time Taken: 0
+----------------------------------------------------------------
+
+27
+
+      <div>
+        <p>
+          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+
+28
+
+Start: 14:33:22.670 
+Stop: 14:33:22.784 
+Time Taken: 0
+----------------------------------------------------------------
+
+29
+
+Start: 14:33:22.789 
+Stop: 14:33:22.853 
+Time Taken: 0
+----------------------------------------------------------------
+
+30
+
+Start: 14:33:22.858 
+Stop: 14:33:22.922 
+Time Taken: 0
+----------------------------------------------------------------
+
+31
+
+      <div>
+        <p>
+          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+
+32
+
+Start: 14:33:22.999 
+Stop: 14:33:23.409 
+Time Taken: 1
+----------------------------------------------------------------
+
+33
+
+Start: 14:33:23.414 
+Stop: 14:33:23.765 
+Time Taken: 0
+----------------------------------------------------------------
+
+34
+
+Start: 14:33:23.771 
+Stop: 14:33:23.901 
+Time Taken: 0
+----------------------------------------------------------------
+
+35
+
+Start: 14:33:23.906 
+Stop: 14:33:24.225 
+Time Taken: 1
+----------------------------------------------------------------
+
+36
+
+Start: 14:33:24.230 
+Stop: 14:33:24.308 
+Time Taken: 0
+----------------------------------------------------------------
+
+37
+
+Start: 14:33:24.313 
+Stop: 14:33:24.527 
+Time Taken: 0
+----------------------------------------------------------------
+
+38
+
+Start: 14:33:24.532 
+Stop: 14:33:25.42 
+Time Taken: 1
+----------------------------------------------------------------
+
+39
+
+Start: 14:33:25.47 
+Stop: 14:33:25.118 
+Time Taken: 0
+----------------------------------------------------------------
+
+40
+
+Start: 14:33:25.122 
+Stop: 14:33:25.186 
+Time Taken: 0
+----------------------------------------------------------------
+
+41
+
+Start: 14:33:25.190 
+Stop: 14:33:25.251 
+Time Taken: 0
+----------------------------------------------------------------
+
+42
+
+Start: 14:33:25.255 
+Stop: 14:33:25.615 
+Time Taken: 0
+----------------------------------------------------------------
+
+43
+
+Start: 14:33:25.620 
+Stop: 14:33:25.642 
+Time Taken: 0
+----------------------------------------------------------------
+
+44
+
+Start: 14:33:25.647 
+Stop: 14:33:26.130 
+Time Taken: 1
+----------------------------------------------------------------
+
+45
+
+Start: 14:33:26.135 
+Stop: 14:33:26.201 
+Time Taken: 0
+----------------------------------------------------------------
+
+46
+
+Start: 14:33:26.206 
+Stop: 14:33:26.286 
+Time Taken: 0
+----------------------------------------------------------------
+
+47
+
+Start: 14:33:26.291 
+Stop: 14:33:26.355 
+Time Taken: 0
+----------------------------------------------------------------
+
+48
+
+Start: 14:33:26.359 
+Stop: 14:33:26.433 
+Time Taken: 0
+----------------------------------------------------------------
+
+49
+
+Start: 14:33:26.438 
+Stop: 14:33:27.53 
+Time Taken: 1
+----------------------------------------------------------------
+
+50
+
+Start: 14:33:27.57 
+Stop: 14:33:27.319 
+Time Taken: 0
+----------------------------------------------------------------
+
+51
+
+Start: 14:33:27.324 
+Stop: 14:33:27.391 
+Time Taken: 0
+----------------------------------------------------------------
+
+52
+
+Start: 14:33:27.396 
+Stop: 14:33:28.322 
+Time Taken: 1
+----------------------------------------------------------------
+
+53
+
+Start: 14:33:28.326 
+Stop: 14:33:29.365 
+Time Taken: 1
+----------------------------------------------------------------
+
+54
+
+Start: 14:33:29.370 
+Stop: 14:33:29.635 
+Time Taken: 0
+----------------------------------------------------------------
+
+55
+
+Start: 14:33:29.640 
+Stop: 14:33:29.702 
+Time Taken: 0
+----------------------------------------------------------------
+
+56
+
+Start: 14:33:29.706 
+Stop: 14:33:30.456 
+Time Taken: 1
+----------------------------------------------------------------
+
+57
+
+Start: 14:33:30.460 
+Stop: 14:33:31.48 
+Time Taken: 1
+----------------------------------------------------------------
+
+58
+
+Start: 14:33:31.52 
+Stop: 14:33:31.458 
+Time Taken: 0
+----------------------------------------------------------------
+
+59
+
+      <div>
+        <p>
+          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+
+60
+
+Start: 14:33:32.652 
+Stop: 14:33:32.719 
+Time Taken: 0
+----------------------------------------------------------------
+
+61
+
+Start: 14:33:32.723 
+Stop: 14:33:32.793 
+Time Taken: 0
+----------------------------------------------------------------
+
+62
+
+Start: 14:33:32.797 
+Stop: 14:33:32.856 
+Time Taken: 0
+----------------------------------------------------------------
+
+63
+
+Start: 14:33:32.860 
+Stop: 14:33:33.458 
+Time Taken: 1
+----------------------------------------------------------------
+
+64
+
+Start: 14:33:33.461 
+Stop: 14:33:33.588 
+Time Taken: 0
+----------------------------------------------------------------
+
+65
+
+Start: 14:33:33.592 
+Stop: 14:33:33.765 
+Time Taken: 0
+----------------------------------------------------------------
+
+66
+
+Start: 14:33:33.769 
+Stop: 14:33:34.439 
+Time Taken: 1
+----------------------------------------------------------------
+
+67
+
+Start: 14:33:34.443 
+Stop: 14:33:34.506 
+Time Taken: 0
+----------------------------------------------------------------
+
+68
+
+Start: 14:33:34.509 
+Stop: 14:33:34.942 
+Time Taken: 0
+----------------------------------------------------------------
+
+69
+
+Start: 14:33:34.946 
+Stop: 14:33:35.8 
+Time Taken: 1
+----------------------------------------------------------------
+
+70
+
+Start: 14:33:35.11 
+Stop: 14:33:35.101 
+Time Taken: 0
+----------------------------------------------------------------
+
+71
+
+Start: 14:33:35.104 
+Stop: 14:33:35.222 
+Time Taken: 0
+----------------------------------------------------------------
+
+72
+
+Start: 14:33:35.227 
+Stop: 14:33:35.291 
+Time Taken: 0
+----------------------------------------------------------------
+
+73
+
+Start: 14:33:35.296 
+Stop: 14:33:36.13 
+Time Taken: 1
+----------------------------------------------------------------
+
+74
+
+      <div>
+        <p>
+          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+
+75
+
+      <div>
+        <p>
+          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+
+76
+
+Start: 14:33:36.229 
+Stop: 14:33:36.292 
+Time Taken: 0
+----------------------------------------------------------------
+
+77
+
+Start: 14:33:36.298 
+Stop: 14:33:36.998 
+Time Taken: 0
+----------------------------------------------------------------
+
+78
+
+Start: 14:33:37.2 
+Stop: 14:33:37.204 
+Time Taken: 0
+----------------------------------------------------------------
+
+79
+
+Start: 14:33:37.208 
+Stop: 14:33:37.505 
+Time Taken: 0
+----------------------------------------------------------------
+
+80
+
+Start: 14:33:37.508 
+Stop: 14:33:37.997 
+Time Taken: 0
+----------------------------------------------------------------
+
+81
+
+Start: 14:33:38.1 
+Stop: 14:33:40.137 
+Time Taken: 2
+----------------------------------------------------------------
+
+82
+
+Start: 14:33:40.141 
+Stop: 14:33:41.83 
+Time Taken: 1
+----------------------------------------------------------------
+
+83
+
+Start: 14:33:41.88 
+Stop: 14:33:41.752 
+Time Taken: 0
+----------------------------------------------------------------
+
+84
+
+      <div>
+        <p>
+          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+
+85
+
+Start: 14:33:42.271 
+Stop: 14:33:42.677 
+Time Taken: 0
+----------------------------------------------------------------
+
+86
+
+Start: 14:33:42.682 
+Stop: 14:35:56.308 
+Time Taken: 134
+----------------------------------------------------------------
+
+87
+
+Start: 14:35:56.313 
+Stop: 14:35:56.584 
+Time Taken: 0
+----------------------------------------------------------------
+
+88
+
+Start: 14:35:56.588 
+Stop: 14:35:58.840 
+Time Taken: 2
+----------------------------------------------------------------
+
+89
+
+Start: 14:35:58.846 
+Stop: 14:35:58.917 
+Time Taken: 0
+----------------------------------------------------------------
+
+90
+
+      <div>
+        <p>
+          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+
+91
+
+Start: 14:35:58.983 
+Stop: 14:35:59.23 
+Time Taken: 1
+----------------------------------------------------------------
+
+92
+
+Start: 14:35:59.28 
+Stop: 14:35:59.94 
+Time Taken: 0
+----------------------------------------------------------------
+
+93
+
+Start: 14:35:59.98 
+Stop: 14:36:00.73 
+Time Taken: 1
+----------------------------------------------------------------
+
+94
+
+Start: 14:36:00.77 
+Stop: 14:36:00.441 
+Time Taken: 0
+----------------------------------------------------------------
+
+95
+
+Start: 14:36:00.445 
+Stop: 14:36:00.722 
+Time Taken: 0
+----------------------------------------------------------------
+
+96
+
+Start: 14:36:00.727 
+Stop: 14:36:01.55 
+Time Taken: 1
+----------------------------------------------------------------
+
+97
+
+Start: 14:36:01.58 
+Stop: 14:36:01.635 
+Time Taken: 0
+----------------------------------------------------------------
+
+98
+
+
+                            }
+                            json.host = window.location.host;  // sets t----------------------------------------------------------------
+
+99
+
+      <div>
+        <p>
+          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+
+100
+
+      <div>
+        <p>
+          Availing himself of the mild, summer-cool weather that now reigned in these latitudes, and in preparation for the peculiarly active pursuits shortly to be anticipated, Perth, the begrimed, blistered old blacksmith, had not removed his portable forge to the hold again, after concluding his contributory work for Ahab's leg, but still retained it on deck, fast lashed to ringbolts by the foremast; being now almost incessantly invoked by the headsmen, and harpooneers, and bowsmen to do some little job for them; altering, or repairing, or new shaping their various weapons and boat furniture. Often he would be surrounded by an eager circle, all waiting to be served; holding boat-spades, pike-heads, harpoons, and lances, and jealously watching his every sooty movement, as he toiled. Nevertheless, this old man's was a patient hammer wielded by a patient arm. No murmur, no impatience, no petulance did come from him. Silent, slow, and solemn; bowing over still further his chronically broken back, he toiled away, as if toil were life itself, and the heavy beating of his ----------------------------------------------------------------
+

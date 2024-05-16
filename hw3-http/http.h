@@ -2,6 +2,8 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include <time.h>
+#include <sys/time.h>
 
 #define     DEFAULT_HOST    "httpbin.org"
 #define     DEFAULT_PORT    80
@@ -28,3 +30,4 @@ void print_header(char *http_buff, int http_header_len);
 //Utilities
 char *strnstr(const char *s, const char *find, size_t slen);
 char *strcasestr(const char *s, const char *find);
+void show_time_elapsed(struct timeval start,struct timeval stop);

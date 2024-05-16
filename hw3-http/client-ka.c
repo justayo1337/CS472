@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
+#include <sys/time.h>
 
 #define  BUFF_SZ            1024
 #define  MAX_REOPEN_TRIES   15
@@ -219,8 +220,11 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     return sock;
 }
 
+
 int main(int argc, char *argv[]){
-    time_t start = time(NULL);
+//    time_t start = time(NULL);
+    struct timeval start,stop;
+    gettimeofday(&start,NULL);
     char sta[100],sto[100];
     int sock;
 
@@ -255,9 +259,6 @@ int main(int argc, char *argv[]){
     }
 
     server_disconnect(sock);
-    time_t stop = time(NULL);
-    strftime(sta,sizeof(sta),"%H:%M:%S %Z",localtime(&start));
-    strftime(sto,sizeof(sto),"%H:%M:%S %Z",localtime(&stop));
-    double time_elapsed = difftime(stop,start);
-    printf("\n\nStart: %s\nStop: %s \nTime Taken: %.f\n",sta,sto,time_elapsed );
+    gettimeofday(&stop,NULL);
+    show_time_elapsed(start,stop);
 }

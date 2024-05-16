@@ -1,5 +1,9 @@
 # HW3 - Building an HTTP Client
 
+## My stuff
+- Command for timing `for i in {1..100}; do  echo "$i\n" ; make run-ka3 | tail -n3 ; echo "----------------------------------------------------------------\n" ; done > timing_keepalive.txt`
+
+
 ### Directions
 
 >**NOTE there is a lot to read here, but dont freak out, there is not a lot to do**
@@ -55,3 +59,7 @@ What you need to do:
 3. Next venture into `http.c`, there are 3 functions in there that I want you to carefully study and document.  They are `socket_connect()`, `get_http_header_len()` and `get_http_content_len()`.  You dont need to change these functions, however, you need to clearly document them in a way that demonstrates you understand what they do.  There is some basic pointer arithmetic and possibly some runtime library functions that you might not be familiar with.  Research the library functions online, and follow the code, either by hand-running, or better yet, by stepping through the functions in the debugger after you finish part 2.  You will be graded on the quality of your documentation in that it demonstrates your understanding of the code.  What do the variables do? How are they updated?  and so on.  Dont just comment that the pointer is updated. 
 
 4. Finally, do some research online to figure out how you can collect a timestamp from the operating system via C.  Hint: check out the functions in `<time.h>`.  Update both programs to get the start time of executing your program (first line in main), and the end time of executing your program (last lines just before main ends) to get the total runtime of your program. In other words (endTime - startTime).  Run the makefile commands `make client-ka3` and `make client-cc3` several times and collect some data.  Include with your submission a file called `timing.txt` that describes the duration of running both the `Connection: Close` and `Connection: Keep-Alive` versions. Explain if you saw improved response time with using `Keep-Alive` or not, and why you think you got about the same, worse or better response time between the two different program versions.    
+
+
+
+

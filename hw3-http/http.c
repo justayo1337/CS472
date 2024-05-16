@@ -256,3 +256,12 @@ int process_http_header(char *http_buff, int http_buff_len, int *header_len, int
     *header_len += strlen(HTTP_HEADER_EOL);
     return 0; //success
 }
+
+void show_time_elapsed(struct timeval start, struct timeval stop){
+
+    char sta[99],sto[100];
+    strftime(sta,sizeof(sta),"%H:%M:%S",localtime(&(start.tv_sec)));
+    strftime(sto,sizeof(sto),"%H:%M:%S",localtime(&(stop.tv_sec)));
+    double time_elapsed = difftime(stop.tv_sec,start.tv_sec);
+    printf("\n\nStart: %s.%ld \nStop: %s.%ld \nTime Taken: %.f\n",sta,start.tv_usec/999,sto,stop.tv_usec/1000,time_elapsed ); 
+}

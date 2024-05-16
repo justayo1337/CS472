@@ -29,3 +29,8 @@ run-ka3:
 .PHONY: run-ka4
 run-ka4:
 	./client-ka httpbin.org 80 / /json /html /post
+
+.PHONY: run-cc4
+run-cc4:
+	./client-cc httpbin.org 80 / /json /html /post
+
