@@ -1,0 +1,21 @@
+CMDLINE Used: 
+  for i in {1..200}; do  echo "$i\n" ; make run-ka3 | tail -n3 ; echo "----------------------------------------------------------------\n" ; done > timing_keepalive.txt
+  for i in {1..200}; do  echo "$i\n" ; make run-cc3 | tail -n3 ; echo "----------------------------------------------------------------\n" ; done > timing_close.txt
+  cat timing_close2.txt | grep "Time Taken" | sort | uniq -c
+
+Using Close
+    115 Time Taken(secs): 0
+     81 Time Taken(secs): 1
+      3 Time Taken(secs): 2
+      1 Time Taken(secs): 3
+Using Keep-Alive:
+    136 Time Taken(secs): 0
+     63 Time Taken(secs): 1
+      1 Time Taken(secs): 2
+
+
+Comparing data from 200 calls using both binaries, looks like on average the implementation of the http client that calls with "Connection: Keep-Alive" is faster as more iterations 
+completed in less that a second. The general average spread of both is still pretty low and the difference between both is minimal. One possible reason is for the Keep-alive version
+the same socket is utilized for the communication with the server, whereas with the "close" version,  for each resource request, a new socket was created, and that inevitably increases the overhead
+as we use "SOCK_STREAM" aka TCP and for each new one there is a need for the TCP Three-way Handshake to take place. With the Keep-Alive version, a new socket is only recreated if conenction is lost inbetween, which in our situation does not seem to happend much atall after doing some debugging.
+The connection persistence that comes with the Keep-Alive value likely produces the slight improvement in the speed of execution of the program. 

@@ -1,7 +1,12 @@
 # HW3 - Building an HTTP Client
 
 ## My stuff
-- Command for timing `for i in {1..100}; do  echo "$i\n" ; make run-ka3 | tail -n3 ; echo "----------------------------------------------------------------\n" ; done > timing_keepalive.txt`
+- Command for timings 
+  ```bash
+  for i in {1..200}; do  echo "$i\n" ; make run-ka3 | tail -n3 ; echo "----------------------------------------------------------------\n" ; done > timing_keepalive.txt
+  for i in {1..200}; do  echo "$i\n" ; make run-cc3 | tail -n3 ; echo "----------------------------------------------------------------\n" ; done > timing_close.txt
+
+  ```
 
 
 ### Directions

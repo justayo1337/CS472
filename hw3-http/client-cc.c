@@ -63,9 +63,6 @@ int process_request(const char *host, uint16_t port, char *resource){
     //recv the data
     while((ret=recv(sock,recv_buff,BUFF_SZ,0)) > 0){
         printf("%.*s", ret, recv_buff);
-       // if (strlen(recv_data)+ret < (BUFF_SZ*4)){ 
-        //    strncpy(recv_data+total_bytes,recv_buff,ret);
-       // }
         total_bytes += ret;
         memset(recv_buff,0,BUFF_SZ) ;
     }
