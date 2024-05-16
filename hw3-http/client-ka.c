@@ -109,7 +109,7 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     
     //do the first recv
     bytes_recvd = recv(sock, recv_buff, sizeof(recv_buff),0);
-    printf("Bytes received: %d\n",bytes_recvd);
+    //printf("Bytes received: %d\n",bytes_recvd);
     if(bytes_recvd <= 0) {
         perror("initial receive failed");
         close(sock);
@@ -128,13 +128,8 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     //          a. close the socket -- close(sock)
     //          b. return -1 to exit this function
     //--------------------------------------------------------------------------------
-    int header_len = get_http_header_len(recv_buff,sizeof(recv_buff));     //change this to get the header len as per the directions above
-    if (header_len < 0) {
-        close(sock);
-        return -1;
-    }
+    int header_len = 0;//get_http_header_len(recv_buff,sizeof(recv_buff));     //change this to get the header len as per the directions above
 
-    print_header(recv_buff,header_len);
     //--------------------------------------------------------------------------------
     //TODO:  Get the conetent len
     //
@@ -144,8 +139,15 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     // cannot find a Content-Length header, its assumed as per the HTTP spec that ther
     // is no body, AKA, content_len is zero;
     //--------------------------------------------------------------------------------
-    int content_len = get_http_content_len(recv_buff,header_len);    //Change this to get the content length
+    int content_len = 0;//get_http_content_len(recv_buff,header_len);    //Change this to get the content length
 
+    process_http_header(recv_buff,sizeof(recv_buff),&header_len,&content_len);
+
+    if (header_len < 0) {
+        close(sock);
+        return -1;
+    }
+    print_header(recv_buff,header_len);
     //--------------------------------------------------------------------------------
     // TODO:  Make sure you understand the calculations below
     //

@@ -55,7 +55,7 @@ int process_request(const char *host, uint16_t port, char *resource){
 
     //confirm that the length of the generated request is equal to the one that was sent.
     if (ret != strlen(send_buf)){
-        printf("%d bytes Generated :%d bytes sent\n",ret,strlen(send_buf));
+        printf("%d bytes Generated :%ld bytes sent\n",ret,strlen(send_buf));
     }
 
 
