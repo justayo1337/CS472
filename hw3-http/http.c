@@ -208,43 +208,30 @@ void print_header(char *http_buff, int http_header_len){
 // use this function to get full extra credit. 
 //--------------------------------------------------------------------------------------
 int process_http_header(char *http_buff, int http_buff_len, int *header_len, int *content_len){
-/*    int h_len, c_len = 0;
-    h_len = get_http_header_len(http_buff, http_buff_len);
-    if (h_len < 0) {
-        *header_len = 0;
-        *content_len = 0;
-        return -1;
-    }
-    c_len = get_http_content_len(http_buff, http_buff_len);
-    if (c_len < 0) {
-        *header_len = 0;
-        *content_len = 0;
-        return -1;
-    }
-
-    *header_len = h_len;
-    *content_len = c_len;
-*/
     char * next = http_buff;
     char header_line[MAX_HEADER_LINE];
-/*    char * end_ptr = strnstr(http_buff,HTTP_HEADER_END,http_buff_len);
-
-    if (end_ptr != NULL){
-        *header_len = (end_ptr - http_buff) + strlen(HTTP_HEADER_END);
-    }else{
-        fprintf(stderr, "Could not find the end of the HTTP header\n"); 
-    }
- */  
-
-    size_t test = sizeof(HTTP_HEADER_END);
-
     memset(header_line,0,MAX_HEADER_LINE);
+    int checkContentLen = 0;
    // char *isCLHeader = strcasestr(header_line,CL_HEADER);
 
-    while (strncmp(next,HTTP_HEADER_EOL,strlen(HTTP_HEADER_EOL)) != 0){
+    // test to see if there is a header given that the First Line should always start with "HTTP/{some version}" AKA the Status Line 
+    sscanf(next,"%[^\r\n]s", header_line);
+    char * isItHeader = strcasestr(header_line,"HTTP/");
+    if (isItHeader == NULL) {
+        fprintf(stderr,"Did not find Header\n");
+        *header_len = -1;
+        fprintf(stderr,"Did not find content length\n");
+        *content_len = -1; 
+        return -1;
+
+    } 
+
+    //using this check because the regex in sscanf seemingly picks up the first two "\r\n" for the last line so got to check like its the only thing on the line
+    while (strncmp(next,HTTP_HEADER_EOL,strlen(HTTP_HEADER_EOL)) != 0){ 
         sscanf(next,"%[^\r\n]s", header_line);
         char *isCLHeader = strcasestr(header_line,CL_HEADER);
         if (isCLHeader != NULL){
+                checkContentLen += 1;
                 char *header_value_start = strchr(header_line, HTTP_HEADER_DELIM);
 
                 char *header_value = header_value_start + 1;
@@ -253,12 +240,19 @@ int process_http_header(char *http_buff, int http_buff_len, int *header_len, int
         *header_len += strlen(header_line) + strlen(HTTP_HEADER_EOL);
         next += strlen(header_line) + strlen(HTTP_HEADER_EOL);
     }
-    *header_len += strlen(HTTP_HEADER_EOL);
+
+    *header_len += strlen(HTTP_HEADER_EOL); // using HTTP_HEADER_EOL
+    if (checkContentLen == 0){
+        fprintf(stderr,"Did not find content length\n");
+        *content_len = -1;
+        return -1;
+    }
     return 0; //success
 }
 
 void show_time_elapsed(struct timeval start, struct timeval stop){
-
+    /*Added this function to utilize the functions in the time.h and sys/time.h header files to calculate the time elapsed from start to finish in my code;w
+     */
     char sta[99],sto[100];
     strftime(sta,sizeof(sta),"%H:%M:%S",localtime(&(start.tv_sec)));
     strftime(sto,sizeof(sto),"%H:%M:%S",localtime(&(stop.tv_sec)));

@@ -34,7 +34,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/client-ka",
-            "args": ["httpbin.org", "80" ,"/" ,"/json" ,"/html","/post"],
+            "args": ["ptsv3.com", "80" ,"/" ,"/contact/"],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

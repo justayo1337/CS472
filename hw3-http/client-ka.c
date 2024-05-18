@@ -9,7 +9,7 @@
 #include <sys/time.h>
 
 #define  BUFF_SZ            1024
-#define  MAX_REOPEN_TRIES   15
+#define  MAX_REOPEN_TRIES   5
 
 char recv_buff[BUFF_SZ];
 
@@ -40,7 +40,7 @@ int reopen_socket(const char *host, uint16_t port) {
     //      socket with the host and port that is passed in as parameters.
     //          1. Create a loop that loops MAX_REOPEN_TRIES
     for (int i=0; i< MAX_REOPEN_TRIES;i++){
-        //trying to connect to the server
+        //trying to reconnect to the server
         sock = socket_connect(host,port);
         if (sock > 0 ){
             return (sock);
@@ -74,16 +74,7 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     //the socket
     if (sent_bytes < 0){
         //----------------------------------------------------------------------------
-        //TODO:  Reimplement the retry logic to reopen the socket
-        //
-        // 1.  Use the sock = reopen_socket() helper you implemented above in an attempt
-        //     to reopen_the socket.  If it returns a value less than zero, a socket 
-        //     could not be created so return the negative value and exit the function,
-        //     e.g., return sock
-        //
-        //  2. Assuming you got a valid socket, reissue the send again
-        //     sent_bytes = send(sock, req, send_sz,0);
-        
+        //TODO:  Reimplement the retry logic to reopen the socket        
         //reopen socket
         int sock = reopen_socket(host,port);
         if (sock > 0){
@@ -109,6 +100,7 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     int total_bytes = 0;    //used to accumulate the total number of bytes across all recv() calls
     
     //do the first recv
+    //memset(recv_buff,0,sizeof(recv_buff));
     bytes_recvd = recv(sock, recv_buff, sizeof(recv_buff),0);
     //printf("Bytes received: %d\n",bytes_recvd);
     if(bytes_recvd <= 0) {
@@ -129,7 +121,8 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     //          a. close the socket -- close(sock)
     //          b. return -1 to exit this function
     //--------------------------------------------------------------------------------
-    int header_len = 0;//get_http_header_len(recv_buff,sizeof(recv_buff));     //change this to get the header len as per the directions above
+    int header_len = 0;
+    //int header_len = get_http_header_len(recv_buff,sizeof(recv_buff));     //change this to get the header len as per the directions above
 
     //--------------------------------------------------------------------------------
     //TODO:  Get the conetent len
@@ -140,15 +133,16 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     // cannot find a Content-Length header, its assumed as per the HTTP spec that ther
     // is no body, AKA, content_len is zero;
     //--------------------------------------------------------------------------------
-    int content_len = 0;//get_http_content_len(recv_buff,header_len);    //Change this to get the content length
+    int content_len = 0;
+  //  int content_len = get_http_content_len(recv_buff,header_len);    //Change this to get the content length
 
-    process_http_header(recv_buff,sizeof(recv_buff),&header_len,&content_len);
+    process_http_header(recv_buff,sizeof(recv_buff),&header_len,&content_len); //for extra credit question
 
     if (header_len < 0) {
         close(sock);
         return -1;
     }
-    print_header(recv_buff,header_len);
+    print_header(recv_buff,header_len); // useful to review
     //--------------------------------------------------------------------------------
     // TODO:  Make sure you understand the calculations below
     //
@@ -157,14 +151,13 @@ int submit_request(int sock, const char *host, uint16_t port, char *resource){
     // from the server
     //
     // YOUR ANSWER: The two lines below are aimed at getting started with tracking how much of the content is left to be received from the server
-    // the first variable initial_data calculates the number of bytes from the first recv(...)  that does not include the HTTP header in order to properly calculate 
-    // the total number of bytes received. Utilizing the results from the "initial_data" variable, we can use that along with the value of "Content-Length" in the header "content_len"
-    // to calculate how many bytes are left to completely receive the HTTP Response and how many times to call the recv(...) command to finish in the interaction.
+    // to get the first variable initial_data we calculate the number of bytes from the first recv(...)  that does not include the HTTP header in order to properly calculate 
+    // the total number of content bytes received. Utilizing the results from the "initial_data" variable, we can use that along with the value of "Content-Length" in the header stored as "content_len"
+    // to calculate how many non-header bytes are left to completely receive the HTTP Response and how many times to call the recv(...) function to finish the communication.
     //
     //--------------------------------------------------------------------------------
     int initial_data =  bytes_recvd - header_len;
     int bytes_remaining = content_len - initial_data;
-
 
     total_bytes = initial_data;
 
@@ -235,7 +228,7 @@ int main(int argc, char *argv[]){
 
     //YOU DONT NEED TO DO ANYTHING OR MODIFY ANYTHING IN MAIN().  MAKE SURE YOU UNDERSTAND
     //THE CODE HOWEVER
-    sock = server_connect(host, port);
+    //sock = server_connect(host, port); should not be here
 
     if(argc < 4){
         print_usage(argv[0]);
@@ -251,6 +244,8 @@ int main(int argc, char *argv[]){
         }
         fprintf(stdout, "Running with host = %s, port = %d\n", host, port);
         remaining_args = argc-3;
+
+        sock = server_connect(host, port);
         for(int i = 0; i < remaining_args; i++){
             resource = argv[3+i];
             fprintf(stdout, "\n\nProcessing request for %s\n\n", resource);
