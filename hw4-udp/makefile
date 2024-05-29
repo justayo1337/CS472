@@ -16,3 +16,8 @@ du-ftp: ./objs/du-ftp.o ./objs/du-proto.o
 
 run:
 	./du-ftp
+
+clean:
+	rm ./du-ftp
+	rm  ./objs/du-ftp.o ./objs/du-proto.o 
+
