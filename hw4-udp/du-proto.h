@@ -58,6 +58,9 @@ typedef struct dp_pdu {
     int     err_num;
 } dp_pdu;
 
+
+
+
 #define     DP_MAX_BUFF_SZ          512
 #define     DP_MAX_DGRAM_SZ         (DP_MAX_BUFF_SZ + sizeof(dp_pdu))
 
@@ -68,6 +71,9 @@ typedef struct dp_pdu {
 #define     DP_BUFF_OVERSIZED       -8
 #define     DP_CONNECTION_CLOSED    -16
 #define     DP_ERROR_BAD_DGRAM      -32
+#define     DP_MT_SNDFRAG (DP_MT_SND | DP_MT_FRAGMENT)
+#define     DP_MT_SNDFRAGACK (DP_MT_SNDACK | DP_MT_FRAGMENT)
+#define     IS_MT_FRAGMENT(x) ((x & DP_MT_FRAGMENT) == DP_MT_FRAGMENT)
 
 //PROTOTYPES - INTERNAL HELPERS
 static dp_connp dpinit();

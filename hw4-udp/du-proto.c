@@ -121,16 +121,25 @@ dp_connp dpClientInit(char *addr, int port) {
 int dprecv(dp_connp dp, void *buff, int buff_sz){
 
     dp_pdu *inPdu;
-    int rcvLen = dprecvdgram(dp, _dpBuffer, sizeof(_dpBuffer));
+    int totalReceived = 0;
+    void * dest = buff;
+    int isFragment = 0;
+    int rcvLen = 0;
+    do {
+        rcvLen = dprecvdgram(dp, _dpBuffer, sizeof(_dpBuffer));
+        if(rcvLen == DP_CONNECTION_CLOSED)
+            return DP_CONNECTION_CLOSED;
 
-    if(rcvLen == DP_CONNECTION_CLOSED)
-        return DP_CONNECTION_CLOSED;
+        inPdu = (dp_pdu *)_dpBuffer;
+        if(rcvLen > sizeof(dp_pdu))
+            memcpy(dest,  _dpBuffer + sizeof(dp_pdu) , inPdu->dgram_sz);
 
-    inPdu = (dp_pdu *)_dpBuffer;
-    if(rcvLen > sizeof(dp_pdu))
-        memcpy(buff, (_dpBuffer+sizeof(dp_pdu)), inPdu->dgram_sz);
-
-    return inPdu->dgram_sz;
+        dest +=  rcvLen - sizeof(dp_pdu);
+        totalReceived += rcvLen - sizeof(dp_pdu);
+        isFragment = IS_MT_FRAGMENT(inPdu->mtype);
+        memset(_dpBuffer,0,sizeof(_dpBuffer) );
+    } while (isFragment);
+    return totalReceived;
 }
 
 
@@ -199,6 +208,12 @@ static int dprecvdgram(dp_connp dp, void *buff, int buff_sz){
                 return DP_ERROR_PROTOCOL;
             dpclose(dp);
             return DP_CONNECTION_CLOSED;
+        case DP_MT_SNDFRAG:
+            outPdu.mtype = DP_MT_SNDFRAGACK;
+            actSndSz = dpsendraw(dp, &outPdu, sizeof(dp_pdu));
+            if (actSndSz != sizeof(dp_pdu))
+                return DP_ERROR_PROTOCOL;
+            break; 
         default:
         {
             printf("ERROR: Unexpected or bad mtype in header %d\n", inPdu.mtype);
@@ -248,13 +263,21 @@ int dpsend(dp_connp dp, void *sbuff, int sbuff_sz){
 
 
     //For now, we will not be able to send larger than the biggest datagram
-    if(sbuff_sz > dpmaxdgram()) {
-        return DP_BUFF_UNDERSIZED;
+//    if(sbuff_sz > dpmaxdgram()) {
+  //      return DP_BUFF_UNDERSIZED;
+ //   }
+
+    void * localbuf = sbuff;
+    int totalToSend = sbuff_sz;
+    int sentSize,totalSent = 0;
+    while (totalToSend > 0){
+        sentSize = dpsenddgram(dp,localbuf, totalToSend);
+        totalToSend -= sentSize;
+        localbuf += sentSize;
+        totalSent += sentSize;
     }
 
-    int sndSz = dpsenddgram(dp, sbuff, sbuff_sz);
-
-    return sndSz;
+    return totalSent;
 }
 
 static int dpsenddgram(dp_connp dp, void *sbuff, int sbuff_sz){
@@ -265,17 +288,25 @@ static int dpsenddgram(dp_connp dp, void *sbuff, int sbuff_sz){
         return DP_ERROR_GENERAL;
     }
 
-    if(sbuff_sz > DP_MAX_BUFF_SZ)
-        return DP_ERROR_GENERAL;
+    //if(sbuff_sz > DP_MAX_BUFF_SZ)
+     //   return DP_ERROR_GENERAL;
 
     //Build the PDU and out buffer
     dp_pdu *outPdu = (dp_pdu *)_dpBuffer;
-    int    sndSz = sbuff_sz;
     outPdu->proto_ver = DP_PROTO_VER_1;
-    outPdu->mtype = DP_MT_SND;
-    outPdu->dgram_sz = sndSz;
     outPdu->seqnum = dp->seqNum;
+    int sndSz = 0;
+    if (sbuff_sz > DP_MAX_BUFF_SZ){
+        sndSz = DP_MAX_BUFF_SZ;
+        outPdu->mtype = DP_MT_SNDFRAG;
+        outPdu->dgram_sz = sndSz;
 
+    } else {
+        sndSz = sbuff_sz;
+        outPdu->mtype = DP_MT_SND;
+        outPdu->dgram_sz = sndSz;
+
+    }
     memcpy((_dpBuffer + sizeof(dp_pdu)), sbuff, sndSz);
 
     int totalSendSz = outPdu->dgram_sz + sizeof(dp_pdu);
@@ -296,6 +327,9 @@ static int dpsenddgram(dp_connp dp, void *sbuff, int sbuff_sz){
     int bytesIn = dprecvraw(dp, &inPdu, sizeof(dp_pdu));
     if ((bytesIn < sizeof(dp_pdu)) && (inPdu.mtype != DP_MT_SNDACK)){
         printf("Expected SND/ACK but got a different mtype %d\n", inPdu.mtype);
+    } else if ((bytesIn < sizeof(dp_pdu)) && (inPdu.mtype != DP_MT_SNDFRAGACK)){
+        printf("Expected SND/FRAG/ACK but got a different mtype %d\n", inPdu.mtype);
+
     }
 
     return bytesOut - sizeof(dp_pdu);
@@ -478,6 +512,10 @@ static char * pdu_msg_to_string(dp_pdu *pdu) {
             return "CONNECT/ACK";    
         case DP_MT_CLOSEACK:
             return "CLOSE/ACK";
+        case DP_MT_SNDFRAG:
+            return "SEND FRAGMENT";
+        case DP_MT_SNDFRAGACK:
+            return "SEND FRAGMENT/ACK";
         default:
             return "***UNKNOWN***";  
     }

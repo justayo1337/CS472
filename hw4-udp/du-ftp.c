@@ -9,10 +9,11 @@
 #include "du-proto.h"
 
 
-#define BUFF_SZ 512
+#define BUFF_SZ 1000
 static char sbuffer[BUFF_SZ];
 static char rbuffer[BUFF_SZ];
 static char full_file_path[FNAME_SZ];
+prog_config cfg;
 
 /*
  *  Helper function that processes the command line arguements.  Highlights
@@ -107,7 +108,7 @@ int server_loop(dp_connp dpc, void *sBuff, void *rBuff, int sbuff_sz, int rbuff_
 
 
 void start_client(dp_connp dpc){
-    static char sBuff[500];
+    static char sBuff[BUFF_SZ];
 
     if(!dpc->isConnected) {
         printf("Client not connected\n");
@@ -141,7 +142,7 @@ void start_server(dp_connp dpc){
 
 int main(int argc, char *argv[])
 {
-    prog_config cfg;
+    //prog_config cfg;
     int cmd;
     dp_connp dpc;
     int rc;
