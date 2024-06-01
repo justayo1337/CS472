@@ -127,9 +127,15 @@ void start_client(dp_connp dpc){
     }
 
     int bytes = 0;
-
-    while ((bytes = fread(sBuff, 1, sizeof(sBuff), f )) > 0)
-        dpsend(dpc, sBuff, bytes);
+    int ret = 0;
+    while ((bytes = fread(sBuff, 1, sizeof(sBuff), f )) > 0){
+        ret = dpsend(dpc, sBuff, bytes);
+        if (ret == DP_ERROR_CONNECTION_TIMEOUT) {
+            perror("Timeout hit, exiting");
+            break;
+        }
+    }
+        
 
     fclose(f);
     dpdisconnect(dpc);

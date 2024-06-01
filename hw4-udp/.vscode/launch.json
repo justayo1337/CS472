@@ -12,7 +12,7 @@
             "program": "${workspaceFolder}/du-ftp",
             "args": ["-s"],
             "stopAtEntry": false,
-            "cwd": "/home/ayo/CS472/hw4-udp",
+            "cwd": "/home/ayo/classes/cs472/hw4-udp",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb"
@@ -24,7 +24,7 @@
             "program": "${workspaceFolder}/du-ftp",
             "args": ["-c"],
             "stopAtEntry": false,
-            "cwd": "/home/ayo/CS472/hw4-udp",
+            "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb"

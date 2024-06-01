@@ -3,4 +3,6 @@
     - Send back a packet with the error code 'DP_ERROR_BAD_SEQNUM' defined in the du-proto.h
     - Need to implement a way to resend the packets in the situation that the seqNum is wrong, and also need to implement a way to send just the needed data again and will require adding new mtypes for that
  - Timeout  for UDP socket
-    - set the timeout option in the dplisten() and dpconnect() functions to only allow timing out after a connection has been established 
+    - set the timeout option in the dplisten() and dpconnect() functions to only allow timing out after a connection has been established
+    - There is now a check in dprecvraw() to retry 3 times when there is a timeout to receive and it finally exits when that happens the 4th timeout
+    - Tried to implement a way to close both sides of the connection if there was a timeout the did not recover after 3 tries. 

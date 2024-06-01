@@ -7,7 +7,7 @@
 #include <sys/un.h>
 #include <time.h>
 #include <sys/time.h>
-
+#include <errno.h>
 #include "du-proto.h"
 
 static char _dpBuffer[DP_MAX_DGRAM_SZ];
@@ -164,6 +164,9 @@ static int dprecvdgram(dp_connp dp, void *buff, int buff_sz){
     if (inPdu.dgram_sz > buff_sz)
         errCode = DP_BUFF_UNDERSIZED;
 
+    if (bytesIn == DP_ERROR_CONNECTION_TIMEOUT){
+        errCode = DP_ERROR_CONNECTION_TIMEOUT;
+    }
     //Copy buffer back
     // memcpy(buff, (_dpBuffer+sizeof(dp_pdu)), inPdu.dgram_sz);
     
@@ -196,6 +199,10 @@ static int dprecvdgram(dp_connp dp, void *buff, int buff_sz){
             return DP_ERROR_PROTOCOL;
     }
 
+    if (errCode == DP_ERROR_CONNECTION_TIMEOUT){
+        dpdisconnect(dp);
+        return DP_CONNECTION_CLOSED;
+    }
 
     switch(inPdu.mtype){
         case DP_MT_SND:
@@ -235,15 +242,31 @@ static int dprecvraw(dp_connp dp, void *buff, int buff_sz){
         perror("dprecv: dp connection not setup properly - cli struct not init");
         return -1;
     }
+    int retry_cnt = 1;
+    while (retry_cnt < 4){
+        bytes = recvfrom(dp->udp_sock, (char *)buff, buff_sz,  
+                    MSG_WAITALL, ( struct sockaddr *) &(dp->outSockAddr.addr), 
+                    &(dp->outSockAddr.len)); 
 
-    bytes = recvfrom(dp->udp_sock, (char *)buff, buff_sz,  
-                MSG_WAITALL, ( struct sockaddr *) &(dp->outSockAddr.addr), 
-                &(dp->outSockAddr.len)); 
+        if ((errno  == EAGAIN || errno == EWOULDBLOCK) && bytes < 0){
+            fprintf(stdout,"dprecv: timed out, trying again: %d\n",retry_cnt);
+            retry_cnt++;
+            continue;
+        }else if (bytes > 0){
+            break;
+        }else{
+            fprintf(stdout,"dprecv(): received error, retrying ...\n");
+            retry_cnt++;
+        }
+    }
 
-    if (bytes < 0) {
+    if ((errno  == EAGAIN || errno == EWOULDBLOCK) && bytes < 0 ){
+        fprintf(stderr,"Reading from the socket timed out after 3 retries, Closing Connection\n");
+        return DP_ERROR_CONNECTION_TIMEOUT;
+    }else if (bytes < 0) {
         perror("dprecv: received error from recvfrom()");
         return -1;
-    }
+    } 
     dp->outSockAddr.isAddrInit = true;
 
     //some helper code if you want to do debugging
@@ -275,6 +298,9 @@ int dpsend(dp_connp dp, void *sbuff, int sbuff_sz){
     int sentSize,totalSent = 0;
     while (totalToSend > 0){
         sentSize = dpsenddgram(dp,localbuf, totalToSend);
+        if (sentSize == DP_ERROR_CONNECTION_TIMEOUT){
+            return DP_ERROR_CONNECTION_TIMEOUT;
+        }
         totalToSend -= sentSize;
         localbuf += sentSize;
         totalSent += sentSize;
@@ -333,6 +359,11 @@ static int dpsenddgram(dp_connp dp, void *sbuff, int sbuff_sz){
     } else if ((bytesIn < sizeof(dp_pdu)) && (inPdu.mtype != DP_MT_SNDFRAGACK)){
         printf("Expected SND/FRAG/ACK but got a different mtype %d\n", inPdu.mtype);
 
+    }
+
+    if (bytesIn == DP_ERROR_CONNECTION_TIMEOUT){
+        dpdisconnect(dp);
+        return DP_ERROR_CONNECTION_TIMEOUT;
     }
 
     //make sure that the packet received contains the ACK has a seqNum equal to the local calculation of the ACK
