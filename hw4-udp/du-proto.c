@@ -6,6 +6,7 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <time.h>
+#include <sys/time.h>
 
 #include "du-proto.h"
 
@@ -70,7 +71,9 @@ dp_connp dpServerInit(int port) {
         perror("setsockopt(SO_REUSEADDR) failed");
         close(*sock);
         return NULL;
-    }
+    } 
+
+
     if ( (rc = bind(*sock, (const struct sockaddr *)servaddr,  
             dpc->inSockAddr.len)) < 0 ) 
     { 
@@ -282,7 +285,7 @@ int dpsend(dp_connp dp, void *sbuff, int sbuff_sz){
 
 static int dpsenddgram(dp_connp dp, void *sbuff, int sbuff_sz){
     int bytesOut = 0;
-
+    int err = 0;
     if(!dp->outSockAddr.isAddrInit) {
         perror("dpsend:dp connection not setup properly");
         return DP_ERROR_GENERAL;
@@ -332,6 +335,25 @@ static int dpsenddgram(dp_connp dp, void *sbuff, int sbuff_sz){
 
     }
 
+    //make sure that the packet received contains the ACK has a seqNum equal to the local calculation of the ACK
+    if (inPdu.seqnum != dp->seqNum ) 
+        err = DP_ERROR_BAD_SEQNUM;
+    
+    dp_pdu errPdu;
+    errPdu.proto_ver = DP_PROTO_VER_1;
+    errPdu.dgram_sz = 0;
+    errPdu.seqnum = dp->seqNum;
+    errPdu.err_num = err;
+
+
+    if(err < 0) {
+        errPdu.mtype = DP_MT_ERROR;
+        int actSndSz = dpsendraw(dp, &errPdu, sizeof(dp_pdu));
+        if (actSndSz != sizeof(dp_pdu))
+            return DP_ERROR_PROTOCOL;
+    }
+
+
     return bytesOut - sizeof(dp_pdu);
 }
 
@@ -374,6 +396,18 @@ int dplisten(dp_connp dp) {
         return DP_ERROR_GENERAL;
     }
 
+
+    struct timeval tv;
+    tv.tv_sec = 10;
+    tv.tv_usec = 500;
+    if (setsockopt(dp->udp_sock,SOL_SOCKET,SO_RCVTIMEO,&tv,sizeof(tv)) < 0) {
+        perror("setsockopt(SO_RCVTIMEO) failed");
+        close(dp->udp_sock);
+        return DP_ERROR_GENERAL;
+        
+    }
+
+
     pdu.mtype = DP_MT_CNTACK;
     dp->seqNum = pdu.seqnum + 1;
     pdu.seqnum = dp->seqNum;
@@ -410,7 +444,18 @@ int dpconnect(dp_connp dp) {
         perror("dpconnect:Wrong about of connection data sent");
         return -1;
     }
-    
+
+    struct timeval tv;
+    tv.tv_sec = 10;
+    tv.tv_usec = 500;
+    if (setsockopt(dp->udp_sock,SOL_SOCKET,SO_RCVTIMEO,&tv,sizeof(tv)) < 0) {
+        perror("setsockopt(SO_RCVTIMEO) failed");
+        close(dp->udp_sock);
+        return DP_ERROR_GENERAL;
+        
+    }
+
+
     rcvSz = dprecvraw(dp, &pdu, sizeof(pdu));
     if (rcvSz != sizeof(dp_pdu)) {
         perror("dpconnect:Wrong about of connection data received");

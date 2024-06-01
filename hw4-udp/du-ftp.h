@@ -14,12 +14,16 @@ typedef struct prog_config{
     char    file_name[128];
 } prog_config;
 
+
+
+
 typedef struct ftp_pdu{
-    int     proto_ver;
-    int     mtype;
-    int     dgram_sz;
-    int     err_num;
+    int     proto_ver; //  
+    int     mtype; // DU_FTP_SND || DU_FTP_ACK ||  DU_FTP_CONNECT | DU_FTP_NACK | DU_FTP_RESEND
+    int     filesize; 
     char    filename[128];
-    int     file_staus;
-    int     send_status;
+    int     file_status; // FILE_FOUND || FILE_NOT_FOUND || CANNOT_READ_FILE || CLOSE_FILE || CANNOT_WRITE_FILE 
+    char    err_msg[256];
+    int     send_status; // DONE_SENDING || STILL_SENDING || SEND_FAILURE || RESEND_FILE 
+    int     seqNum; 
 } ftp_pdu;
